@@ -24,7 +24,7 @@ Collection of small frontend projects built with HTML, CSS and JavaScript. | _Ko
 
 ## 🚀 Live demo | _Live demo_
 
-- GitHub Pages (coming soon). | _GitHub Pages (uskoro)._
+- <https://josip-pavlovic-dev.github.io/html-css-js-portfolio/> | _Glavna GitHub Pages adresa ovog repozitorijuma._
 
 ---
 
