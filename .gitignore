@@ -144,3 +144,6 @@ vite.config.ts.timestamp-*
 # Python virtual environments (just in case)
 .venv/
 venv/
+
+# Local workbench (daily learning logs, not for public repo)
+workbench/
