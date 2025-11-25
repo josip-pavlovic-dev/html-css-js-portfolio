@@ -3,9 +3,116 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accordion | HTML/CSS/JS Portfolio</title>
+    <meta
+      name="description"
+      content="FAQ accordion component — part of the HTML/CSS/JS mini projects portfolio."
+    />
+    <title>FAQ Accordion | HTML/CSS/JS Mini Projects</title>
   </head>
   <body>
-    <h1>Accordion – coming soon</h1>
+    <header>
+      <h1>FAQ Accordion Component</h1>
+      <p>
+        Small, accessible accordion built with semantic HTML as part of the
+        HTML/CSS/JS mini projects portfolio.
+      </p>
+    </header>
+
+    <main>
+      <!-- Wrapper for the whole accordion -->
+
+      <section class="accordion" aria-label="Frequently Asked Questions">
+        <!-- ITEM 1 -->
+        <div class="accordion__item">
+          <h2 class="accordion__header">
+            <button
+              type="button"
+              class="accordion__trigger"
+              aria-expanded="true"
+              aria-controls="accordion-panel-1"
+              id="accordion-header-1"
+            >
+              What is this project about?
+            </button>
+          </h2>
+          <div
+            id="accordion-panel-1"
+            class="accordion__panel"
+            role="region"
+            aria-labelledby="accordion-header-1"
+          >
+            <p>
+              This is a learning project that focuses on building an accessible
+              FAQ accordion using only HTML first, then adding CSS and
+              JavaScript.
+            </p>
+          </div>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="accordion__item">
+          <h2 class="accordion__header">
+            <button
+              type="button"
+              class="accordion__trigger"
+              aria-expanded="false"
+              aria-controls="accordion-panel-2"
+              id="accordion-header-2"
+            >
+              How will the accordion work later?
+            </button>
+          </h2>
+          <div
+            id="accordion-panel-2"
+            class="accordion__panel"
+            role="region"
+            aria-labelledby="accordion-header-2"
+          >
+            <p>
+              JavaScript will toggle the visibility of each answer and update
+              the <code>aria-expanded</code> attribute on the buttons so that
+              screen readers know which section is open.
+            </p>
+          </div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="accordion__item">
+          <h2 class="accordion__header">
+            <button
+              type="button"
+              class="accordion__trigger"
+              aria-expanded="false"
+              aria-controls="accordion-panel-3"
+              id="accordion-header-3"
+            >
+              Why is accessibility important?
+            </button>
+          </h2>
+          <div
+            id="accordion-panel-3"
+            class="accordion__panel"
+            role="region"
+            aria-labelledby="accordion-header-3"
+          >
+            <p>
+              Proper semantics and ARIA attributes ensure that keyboard users
+              and screen reader users can understand and operate the accordion,
+              not just mouse users.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
+
+<!-- ZADATAK: Za svaki ARIA atribut napisati u komentaru (na srpskom) šta radi taj atribut
+ 1. aria-label="Frequently Asked Questions" - Ovaj atribut daje opis sekciji akordeona, što pomaže korisnicima čitača ekrana da razumeju svrhu ovog dela stranice.
+ 2. aria-expanded="true" - Ovaj atribut označava da je prvi panel akordeona trenutno otvoren (vidljiv).
+ 3. aria-controls="accordion-panel-1" - Ovaj atribut povezuje dugme sa odgovarajućim panelom koji kontroliše, omogućavajući čitačima ekrana da znaju koji deo sadržaja će biti prikazan ili sakriven kada se dugme aktivira.
+ 4. aria-labelledby="accordion-header-1" - Ovaj atribut povezuje panel sa njegovim naslovom, omogućavajući čitačima ekrana da pravilno identifikuju sadržaj panela na osnovu naslova.
+ 5. aria-expanded="false" - Ovaj atribut označava da su drugi i treći paneli akordeona trenutno zatvoreni (nevidljivi).
+  6. aria-controls="accordion-panel-2" i aria-controls="accordion-panel-3" - Ovi atributi povezuju dugmad sa odgovarajućim panelima koje kontrolišu.
+  7. aria-labelledby="accordion-header-2" i aria-labelledby="accordion-header-3" - Ovi atributi povezuju panele sa njihovim naslovima.
+-->
