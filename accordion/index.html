@@ -7,103 +7,105 @@
       name="description"
       content="FAQ accordion component — part of the HTML/CSS/JS mini projects portfolio."
     />
+    <link rel="stylesheet" href="styles.css" />
     <title>FAQ Accordion | HTML/CSS/JS Mini Projects</title>
   </head>
   <body>
-    <header>
-      <h1>FAQ Accordion Component</h1>
-      <p>
-        Small, accessible accordion built with semantic HTML as part of the
-        HTML/CSS/JS mini projects portfolio.
-      </p>
-    </header>
+    <div class="page-layout">
+      <header>
+        <h1>FAQ Accordion Component</h1>
+        <p>
+          Small, accessible accordion built with semantic HTML as part of the
+          HTML/CSS/JS mini projects portfolio.
+        </p>
+      </header>
 
-    <main>
-      <!-- Wrapper for the whole accordion -->
-
-      <section class="accordion" aria-label="Frequently Asked Questions">
-        <!-- ITEM 1 -->
-        <div class="accordion__item">
-          <h2 class="accordion__header">
-            <button
-              type="button"
-              class="accordion__trigger"
-              aria-expanded="true"
-              aria-controls="accordion-panel-1"
-              id="accordion-header-1"
+      <main>
+        <section class="accordion" aria-label="Frequently Asked Questions">
+          <!-- ITEM 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="true"
+                aria-controls="accordion-panel-1"
+                id="accordion-header-1"
+              >
+                What is this project about?
+              </button>
+            </h2>
+            <div
+              id="accordion-panel-1"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-1"
             >
-              What is this project about?
-            </button>
-          </h2>
-          <div
-            id="accordion-panel-1"
-            class="accordion__panel"
-            role="region"
-            aria-labelledby="accordion-header-1"
-          >
-            <p>
-              This is a learning project that focuses on building an accessible
-              FAQ accordion using only HTML first, then adding CSS and
-              JavaScript.
-            </p>
+              <p>
+                This is a learning project that focuses on building an
+                accessible FAQ accordion using only HTML first, then adding CSS
+                and JavaScript.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- ITEM 2 -->
-        <div class="accordion__item">
-          <h2 class="accordion__header">
-            <button
-              type="button"
-              class="accordion__trigger"
-              aria-expanded="false"
-              aria-controls="accordion-panel-2"
-              id="accordion-header-2"
+          <!-- ITEM 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="accordion-panel-2"
+                id="accordion-header-2"
+              >
+                How will the accordion work later?
+              </button>
+            </h2>
+            <div
+              id="accordion-panel-2"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-2"
             >
-              How will the accordion work later?
-            </button>
-          </h2>
-          <div
-            id="accordion-panel-2"
-            class="accordion__panel"
-            role="region"
-            aria-labelledby="accordion-header-2"
-          >
-            <p>
-              JavaScript will toggle the visibility of each answer and update
-              the <code>aria-expanded</code> attribute on the buttons so that
-              screen readers know which section is open.
-            </p>
+              <p>
+                JavaScript will toggle the visibility of each answer and update
+                the <code>aria-expanded</code> attribute on the buttons so that
+                screen readers know which section is open.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- ITEM 3 -->
-        <div class="accordion__item">
-          <h2 class="accordion__header">
-            <button
-              type="button"
-              class="accordion__trigger"
-              aria-expanded="false"
-              aria-controls="accordion-panel-3"
-              id="accordion-header-3"
+          <!-- ITEM 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="accordion-panel-3"
+                id="accordion-header-3"
+              >
+                Why is accessibility important?
+              </button>
+            </h2>
+            <div
+              id="accordion-panel-3"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-3"
             >
-              Why is accessibility important?
-            </button>
-          </h2>
-          <div
-            id="accordion-panel-3"
-            class="accordion__panel"
-            role="region"
-            aria-labelledby="accordion-header-3"
-          >
-            <p>
-              Proper semantics and ARIA attributes ensure that keyboard users
-              and screen reader users can understand and operate the accordion,
-              not just mouse users.
-            </p>
+              <p>
+                Proper semantics and ARIA attributes ensure that keyboard users
+                and screen reader users can understand and operate the
+                accordion, not just mouse users.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
 
