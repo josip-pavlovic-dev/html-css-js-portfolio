@@ -23,7 +23,7 @@
       <main>
         <section class="accordion" aria-label="Frequently Asked Questions">
           <!-- ITEM 1 -->
-          <div class="accordion-item">
+          <div class="accordion-item is-open">
             <h2 class="accordion-header">
               <button
                 type="button"
@@ -50,7 +50,7 @@
           </div>
 
           <!-- ITEM 2 -->
-          <div class="accordion-item">
+          <div class="accordion-item is-closed">
             <h2 class="accordion-header">
               <button
                 type="button"
@@ -77,7 +77,7 @@
           </div>
 
           <!-- ITEM 3 -->
-          <div class="accordion-item">
+          <div class="accordion-item is-closed">
             <h2 class="accordion-header">
               <button
                 type="button"
@@ -109,12 +109,21 @@
   </body>
 </html>
 
-<!-- ZADATAK: Za svaki ARIA atribut napisati u komentaru (na srpskom) šta radi taj atribut
- 1. aria-label="Frequently Asked Questions" - Ovaj atribut daje opis sekciji akordeona, što pomaže korisnicima čitača ekrana da razumeju svrhu ovog dela stranice.
- 2. aria-expanded="true" - Ovaj atribut označava da je prvi panel akordeona trenutno otvoren (vidljiv).
- 3. aria-controls="accordion-panel-1" - Ovaj atribut povezuje dugme sa odgovarajućim panelom koji kontroliše, omogućavajući čitačima ekrana da znaju koji deo sadržaja će biti prikazan ili sakriven kada se dugme aktivira.
- 4. aria-labelledby="accordion-header-1" - Ovaj atribut povezuje panel sa njegovim naslovom, omogućavajući čitačima ekrana da pravilno identifikuju sadržaj panela na osnovu naslova.
- 5. aria-expanded="false" - Ovaj atribut označava da su drugi i treći paneli akordeona trenutno zatvoreni (nevidljivi).
-  6. aria-controls="accordion-panel-2" i aria-controls="accordion-panel-3" - Ovi atributi povezuju dugmad sa odgovarajućim panelima koje kontrolišu.
-  7. aria-labelledby="accordion-header-2" i aria-labelledby="accordion-header-3" - Ovi atributi povezuju panele sa njihovim naslovima.
+<!--
+  ZADATAK: Za svaki ARIA atribut napisati u komentaru (na srpskom) šta radi taj atribut.
+
+  1. aria-label="Frequently Asked Questions" – Ovaj atribut daje pristupačan naziv
+     sekciji akordeona i pomaže korisnicima čitača ekrana da razumeju da se radi
+     o listi često postavljanih pitanja.
+
+  2. aria-expanded="true" / aria-expanded="false" – Ovaj atribut označava da li je
+     određeni panel trenutno otvoren (true) ili zatvoren (false).
+
+  3. aria-controls="accordion-panel-X" – Ovaj atribut povezuje dugme sa panelom
+     koji kontroliše, tj. govori čitaču ekrana koji deo sadržaja će biti
+     prikazan ili sakriven kada se dugme aktivira.
+
+  4. aria-labelledby="accordion-header-X" – Ovaj atribut kaže da je panel
+     "označen" naslovom sa datim ID-jem, što omogućava čitačima ekrana da
+     pravilno pročitaju naslov pre samog sadržaja panela.
 -->
