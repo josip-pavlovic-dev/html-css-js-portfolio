@@ -1,17 +1,50 @@
-/* 1) Design Tokens */
+/* =========================================================
+   FAQ Accordion – Component styles
+   ---------------------------------------------------------
+   1) Design tokens (CSS custom properties)
+   2) Reset & base typography
+   3) Global layout (two-column → single-column)
+   4) Accordion component
+      4.1) Container & items
+      4.2) Accordion header & trigger (button)
+      4.3) Panels (content area)
+      4.4) Keyboard focus styles (accessibility)
+   5) Responsive adjustments (<= 600px)
+   ======================================================= */
+
+/* =======================================
+   1) DESIGN TOKENS
+   - Jedno mesto za boje, font i animacije
+   ===================================== */
+
 :root {
+  /* Colors */
   --color-text: #333;
   --color-bg: #fff;
   --color-bg-alt: #f9f9f9;
   --color-bg-alt-hover: #ececec;
   --color-border: #ddd;
-  --font-family-base: sans-serif;
+
+  /* Accent color for focus outline (good contrast) */
+  --color-accent: #005fcc;
+
+  /* Typography */
+  --font-family-base: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+    sans-serif;
   --font-size-base: 16px;
+
+  /* Animation */
   --transition-speed: 0.3s;
 }
 
-/* 2) Reset & Base */
-* {
+/* =======================================
+   2) RESET & BASE TYPOGRAPHY
+   - Osnova da sve izgleda konzistentno
+   ===================================== */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -39,31 +72,45 @@ h2 {
   margin: 0;
 }
 
-/* 3) Layout */
+/* =======================================
+   3) GLOBAL LAYOUT
+   - Dva stuba: levo uvodni tekst, desno accordion
+   - Na manjim ekranima prelazimo u jedan stub
+   ===================================== */
+
 .page-layout {
+  /* Flexbox za dva stuba */
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row wrap; /* row + wrap = dva stuba → jedan stub */
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
-  max-width: 960px;
-  margin: 0 auto;
+
+  /* Maksimalna širina i centriranje */
+  max-width: 960px; /* optimalna širina za čitanje */
+  margin: 0 auto; /* centriranje horizontalno */
   padding: 2rem 1rem;
 }
 
 .page-layout > header {
-  flex: 1 1 250px;
+  flex: 1 1 250px; /* manji stub, uvodni tekst */
 }
 
 .page-layout > main {
-  flex: 2 1 500px;
+  flex: 2 1 500px; /* veći stub, sam accordion */
 }
 
-/* 4) Accordion */
+/* =======================================
+   4) ACCORDION COMPONENT
+   ===================================== */
+
+/* 4.1) Container & items
+   ---------------------- */
+
 .accordion {
   border: 1px solid var(--color-border);
   border-radius: 0.25rem;
-  overflow: hidden;
+  overflow: hidden; /* zaokruženje izgleda čisto */
 }
 
 .accordion-item + .accordion-item {
@@ -74,34 +121,43 @@ h2 {
   margin: 0;
 }
 
+/* 4.2) Accordion trigger (button)
+   - Ovo je jedini interaktivni element
+   - Na njega vezujemo aria-expanded, aria-controls itd.
+   ----------------------------------------------- */
+
 .accordion-trigger {
+  /* Dugme zauzima ceo prostor header-a */
   display: block;
   width: 100%;
   text-align: left;
+
+  /* Padding, font i težina */
   padding: 1rem;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
+
+  /* Boje i kursor */
   color: var(--color-text);
   background: var(--color-bg-alt);
   border: none;
   cursor: pointer;
-  position: relative;
+
+  /* Pozicija za ikonicu + / - */
+  position: relative; /* za ikonicu + / - */
 }
 
+/* Hover samo kao lagani vizuelni feedback (miš) */
 .accordion-trigger:hover {
   background: var(--color-bg-alt-hover);
 }
 
-.accordion-trigger:focus {
-  outline: 2px dashed var(--color-border);
-  outline-offset: 2px;
-}
-
+/* Ikonica + / - na desnoj strani bazirana na aria-expanded */
 .accordion-trigger::after {
   content: "+";
   position: absolute;
-  right: 1rem;
-  top: 50%;
+  inset-block-start: 50%; /* vertikalno centrirano */
+  inset-inline-end: 1rem; /* desno poravnato (logical property) */
   transform: translateY(-50%);
   font-size: 1.2em;
 }
@@ -110,46 +166,74 @@ h2 {
   content: "-";
 }
 
+/* 4.3) Panels (odgovori)
+   - Osnovno stanje: zatvoreno, bez paddinga
+   - Otvoreno stanje: .accordion-item.is-open
+   ----------------------------------------- */
+
 .accordion-panel {
-  padding: 0 1rem;
+  padding-inline: 1rem;
+  padding-block: 0; /* zatvoren panel nema vertikalni padding */
   background: var(--color-bg);
   overflow: hidden;
+
+  /* Napomena: hidden atribut koji dodaje JS fizički uklanja
+     panel iz layout-a. Ovaj transition je više za slučaj da
+     kasnije pređemo na CSS-only animaciju. */
   transition: max-height var(--transition-speed) ease,
-    padding var(--transition-speed) ease;
+    padding-block var(--transition-speed) ease;
 }
 
-.accordion-header + .accordion-panel {
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.accordion-item:first-child .accordion-panel {
-  max-height: 1000px;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.accordion-trigger[aria-expanded="false"] + .accordion-panel,
+/* Zatvoreno (default) */
 .accordion-item.is-closed .accordion-panel {
   max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-block: 0;
 }
 
-.accordion-trigger[aria-expanded="true"] + .accordion-panel,
+/* Otvoreno – JS dodaje .is-open na .accordion-item */
 .accordion-item.is-open .accordion-panel {
-  max-height: 1000px;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  max-height: 1000px; /* dovoljno velika vrednost za sadržaj */
+  padding-block: 1rem;
   border-top: 1px solid var(--color-border);
 }
 
-/* 5) Responsive */
+/* =======================================
+   4.4) KEYBOARD FOCUS STYLES
+   - Fokus je ključan za WCAG 2.4.7 (Focus Visible)
+   - :focus-visible = fokus samo kad treba da bude vidljiv
+     (obično tastatura, ne mišem)
+   ===================================== */
+
+/* Sakrivamo browser default outline,
+   ali SAMO ako dodajemo svoj :focus-visible stil. */
+.accordion-trigger:focus {
+  outline: none;
+}
+
+/* Jasan, debeli fokus za tab navigaciju */
+.accordion-trigger:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px rgb(0 95 204 / 25%); /* malo ‘glow’-a */
+}
+
+/* Mala pomoć za korisnike miša:
+   Kada je panel otvoren, možemo da ga naglasimo. */
+.accordion-item.is-open .accordion-trigger {
+  background: var(--color-bg-alt-hover);
+}
+
+/* =======================================
+   5) RESPONSIVE (≤ 600px širina)
+   - Range sintaksa: (width <= 600px)
+     – deo Media Queries Level 4 specifikacije
+   ===================================== */
+
 @media (width <= 600px) {
   .page-layout {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    gap: 1.5rem;
   }
 
   .page-layout > header {
@@ -174,13 +258,11 @@ h2 {
   }
 
   .accordion-trigger::after {
-    right: 0.75rem;
+    inset-inline-end: 0.75rem;
     font-size: 1em;
   }
 
-  .accordion-trigger[aria-expanded="true"] + .accordion-panel,
   .accordion-item.is-open .accordion-panel {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-block: 0.5rem;
   }
 }
