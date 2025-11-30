@@ -1,113 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
+    <!-- ✅ Osnovna podešavanja dokumenta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="FAQ accordion component — part of the HTML/CSS/JS mini projects portfolio."
+    <title>FAQ Accordion</title>
+
+    <!-- 🎨 CSS fajl i font -->
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <title>FAQ Accordion | HTML/CSS/JS Mini Projects</title>
   </head>
   <body>
-    <div class="page-layout">
-      <header>
-        <h1>FAQ Accordion Component</h1>
+    <!-- =======================
+         HEADER: Naslov i toggle
+         ======================= -->
+    <header>
+      <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-label="Toggle theme"
+        >
+          🌙 Dark Mode
+        </button>
+      </div>
+    </header>
+
+    <!-- ========================
+         MAIN: Sadržaj stranice
+         ======================== -->
+    <main class="page-layout">
+      <!-- ✍️ Uvodni tekst -->
+      <section class="intro">
         <p>
-          Small, accessible accordion built with semantic HTML as part of the
-          HTML/CSS/JS mini projects portfolio.
+          This accessible FAQ accordion uses semantic HTML, responsive CSS, and
+          clean JS. It supports keyboard navigation, screen readers, and
+          light/dark mode.
         </p>
-      </header>
+      </section>
 
-      <main>
-        <section class="accordion" aria-label="Frequently Asked Questions">
-          <!-- ITEM 1 -->
-          <div class="accordion-item is-open">
-            <h2 class="accordion-header">
-              <button
-                type="button"
-                class="accordion-trigger"
-                aria-expanded="true"
-                aria-controls="accordion-panel-1"
-                id="accordion-header-1"
-              >
-                What is this project about?
-              </button>
-            </h2>
-            <div
-              id="accordion-panel-1"
-              class="accordion-panel"
-              role="region"
-              aria-labelledby="accordion-header-1"
+      <!-- 📚 Sekcija: Accordion -->
+      <section class="accordion" aria-label="FAQ Section">
+        <!-- 🔽 Accordion Item 0 (custom) -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="accordion-header-0">
+            <button
+              class="accordion-trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="accordion-panel-0"
+              id="accordion-button-0"
             >
-              <p>
-                This is a learning project that focuses on building an
-                accessible FAQ accordion using only HTML first, then adding CSS
-                and JavaScript.
-              </p>
-            </div>
-          </div>
+              <span class="accordion-title">What is this project about?</span>
+            </button>
+          </h2>
 
-          <!-- ITEM 2 -->
-          <div class="accordion-item is-closed">
-            <h2 class="accordion-header">
-              <button
-                type="button"
-                class="accordion-trigger"
-                aria-expanded="false"
-                aria-controls="accordion-panel-2"
-                id="accordion-header-2"
-              >
-                How will the accordion work later?
-              </button>
-            </h2>
-            <div
-              id="accordion-panel-2"
-              class="accordion-panel"
-              role="region"
-              aria-labelledby="accordion-header-2"
-              hidden
-            >
-              <p>
-                JavaScript will toggle the visibility of each answer and update
-                the <code>aria-expanded</code> attribute on the buttons so that
-                screen readers know which section is open.
-              </p>
-            </div>
+          <div
+            id="accordion-panel-0"
+            class="accordion-panel"
+            role="region"
+            aria-labelledby="accordion-header-0"
+            hidden
+          >
+            <p>
+              This is a learning project that focuses on building an accessible
+              FAQ accordion using only HTML first, then adding CSS and
+              JavaScript.
+            </p>
           </div>
+        </div>
+        <!-- 🔽 Accordion Item 1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="accordion-header-1">
+            <button
+              class="accordion-trigger"
+              aria-expanded="false"
+              aria-controls="accordion-panel-1"
+              id="accordion-button-1"
+            >
+              What is semantic HTML?
+            </button>
+          </h2>
+          <div
+            id="accordion-panel-1"
+            class="accordion-panel"
+            role="region"
+            aria-labelledby="accordion-header-1"
+          >
+            <p>
+              Semantic HTML uses elements that clearly describe their meaning,
+              like &lt;section&gt;, &lt;article&gt;, and &lt;header&gt;.
+            </p>
+          </div>
+        </div>
 
-          <!-- ITEM 3 -->
-          <div class="accordion-item is-closed">
-            <h2 class="accordion-header">
-              <button
-                type="button"
-                class="accordion-trigger"
-                aria-expanded="false"
-                aria-controls="accordion-panel-3"
-                id="accordion-header-3"
-                hidden
-              >
-                Why is accessibility important?
-              </button>
-            </h2>
-            <div
-              id="accordion-panel-3"
-              class="accordion-panel"
-              role="region"
-              aria-labelledby="accordion-header-3"
+        <!-- 🔽 Accordion Item 2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="accordion-header-2">
+            <button
+              class="accordion-trigger"
+              aria-expanded="false"
+              aria-controls="accordion-panel-2"
+              id="accordion-button-2"
             >
-              <p>
-                Proper semantics and ARIA attributes ensure that keyboard users
-                and screen reader users can understand and operate the
-                accordion, not just mouse users.
-              </p>
-            </div>
+              How does this accordion work?
+            </button>
+          </h2>
+          <div
+            id="accordion-panel-2"
+            class="accordion-panel"
+            role="region"
+            aria-labelledby="accordion-header-2"
+            hidden
+          >
+            <p>
+              JavaScript toggles the aria-expanded attribute and visibility of
+              panels using classes and ARIA logic.
+            </p>
           </div>
-        </section>
-      </main>
-    </div>
-    <script src="script.js"></script>
+        </div>
+
+        <!-- 🔽 Accordion Item 3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="accordion-header-3">
+            <button
+              class="accordion-trigger"
+              aria-expanded="false"
+              aria-controls="accordion-panel-3"
+              id="accordion-button-3"
+            >
+              Is it accessible with keyboard?
+            </button>
+          </h2>
+          <div
+            id="accordion-panel-3"
+            class="accordion-panel"
+            role="region"
+            aria-labelledby="accordion-header-3"
+            hidden
+          >
+            <p>
+              Yes! You can navigate via Tab and toggle sections with Enter or
+              Space.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 📜 JavaScript za accordion i dark mode -->
+    <script src="./script.js" defer></script>
   </body>
 </html>
 
