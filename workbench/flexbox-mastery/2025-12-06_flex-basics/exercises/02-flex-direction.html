@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vežba 2: Flex Direction</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+
+      .exercise {
+        background: white;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .instruction {
+        background: #e3f2fd;
+        padding: 12px;
+        border-left: 4px solid #2196f3;
+        margin-bottom: 20px;
+        border-radius: 4px;
+      }
+
+      .info {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 12px;
+        margin-top: 15px;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #856404;
+      }
+
+      /* ============================================
+           ZADATAK 1: flex-direction: row (default)
+           ============================================ */
+
+      .task1 .container {
+        display: flex;
+        /* TODO: Dodaj flex-direction: row; */
+        flex-direction: row; /* ✅ REŠENJE row je default vrednost */
+        border: 2px solid blue;
+        padding: 10px;
+        margin-bottom: 20px;
+        gap: 10px;
+      }
+
+      .task1 .item {
+        width: 100px;
+        height: 100px;
+        background: #ff6b6b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+      }
+
+      /* ============================================
+           ZADATAK 2: flex-direction: column
+           ============================================ */
+
+      .task2 .container {
+        display: flex;
+        /* TODO: Dodaj flex-direction: column; */
+        flex-direction: column; /* ✅ REŠENJE  koristi se kod sidebar-ova, vertikalnog menija i stack-layout-a */
+        border: 2px solid green;
+        padding: 10px;
+        margin-bottom: 20px;
+        gap: 10px;
+        width: 200px; /* Ogranicena sirina da vidis kolonu bolje */
+      }
+
+      .task2 .item {
+        width: 80px;
+        height: 60px;
+        background: #4ecdc4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 16px;
+      }
+
+      /* ============================================
+           ZADATAK 3: flex-direction: row-reverse
+           ============================================ */
+
+      .task3 .container {
+        display: flex;
+        /* TODO: Dodaj flex-direction: row-reverse; */
+        flex-direction: row-reverse; /* ✅ REŠENJE */
+        border: 2px solid purple;
+        padding: 10px;
+        margin-bottom: 20px;
+        gap: 10px;
+      }
+
+      .task3 .item {
+        width: 90px;
+        height: 90px;
+        background: #95e1d3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+      }
+
+      /* ============================================
+           ZADATAK 4: flex-direction: column-reverse
+           ============================================ */
+
+      .task4 .container {
+        display: flex;
+        /* TODO: Dodaj flex-direction: column-reverse; */
+        flex-direction: column-reverse; /* ✅ REŠENJE */
+        border: 2px solid orange;
+        padding: 10px;
+        gap: 10px;
+        width: 150px; /* Ogranicena sirina */
+      }
+
+      .task4 .item {
+        width: 100px;
+        height: 50px;
+        background: #f38181;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      /* ============================================
+           BONUS ZADATAK: Napredni primer - Navbar
+           ============================================ */
+
+      .bonus .navbar {
+        display: flex;
+        /* TODO: Postavi flex-direction na odgovarajucu vrednost */
+        border: 2px solid #333;
+        padding: 10px;
+        background: #333;
+        gap: 0;
+      }
+
+      .bonus .navbar button {
+        flex: 1;
+        padding: 10px 20px;
+        background: #555;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s;
+      }
+
+      .bonus .navbar button:hover {
+        background: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎯 Vežba 2: Flex Direction</h1>
+    <p>
+      Nauči kako `flex-direction` menja redosled stavki: redovi, kolone, i
+      nazad!
+    </p>
+
+    <!-- ZADATAK 1 -->
+    <div class="exercise task1">
+      <h2>Zadatak 1: flex-direction: row</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Dodaj `flex-direction: row;` u
+        `.task1 .container` (ili ostavi bez - to je DEFAULT vrednost). Stavke
+        trebalo bi da budu u redu (horizontalno).
+      </div>
+
+      <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>flex-direction: row</strong> je DEFAULT vrednost. Stavke se
+        redaju s leva na desno. <br /><strong>Main Axis:</strong> Horizontalno
+        (←→)
+      </div>
+    </div>
+
+    <!-- ZADATAK 2 -->
+    <div class="exercise task2">
+      <h2>Zadatak 2: flex-direction: column</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Dodaj `flex-direction: column;`
+        u `.task2 .container` Stavke trebalo bi da se porede vertikalno (jedno
+        ispod drugoga).
+      </div>
+
+      <div class="container">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>flex-direction: column</strong> pravi vertikalnu kolonu.
+        <br /><strong>Main Axis:</strong> Vertikalno (↑↓) <br /><strong
+          >Praktična primena:</strong
+        >
+        Sidebar, vertikalni menu, stack layout
+      </div>
+    </div>
+
+    <!-- ZADATAK 3 -->
+    <div class="exercise task3">
+      <h2>Zadatak 3: flex-direction: row-reverse</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Dodaj `flex-direction:
+        row-reverse;` u `.task3 .container` Stavke trebalo bi da budu u redu,
+        ALI OBRNUTO (s desna na levo).
+      </div>
+
+      <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>flex-direction: row-reverse</strong> - Redosled je promenjen!
+        <br /><strong>Trebalo bi da vidiš:</strong> 4, 3, 2, 1 (obrnuto od
+        HTML-a) <br /><strong>Napomena:</strong> Ovo je samo vizuelna promena -
+        HTML red je nepromenjen!
+      </div>
+    </div>
+
+    <!-- ZADATAK 4 -->
+    <div class="exercise task4">
+      <h2>Zadatak 4: flex-direction: column-reverse</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Dodaj `flex-direction:
+        column-reverse;` u `.task4 .container` Stavke trebalo bi da budu u
+        koloni, ALI OBRNUTO (od dole prema gore).
+      </div>
+
+      <div class="container">
+        <div class="item">TOP</div>
+        <div class="item">MID</div>
+        <div class="item">BOT</div>
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>flex-direction: column-reverse</strong> - Kolona je okrenuta!
+        <br /><strong>Trebalo bi da vidiš:</strong> BOT, MID, TOP (obrnuto od
+        HTML-a)
+      </div>
+    </div>
+
+    <!-- BONUS ZADATAK -->
+    <div class="exercise bonus">
+      <h2>🌟 Bonus Zadatak: Navbar</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Odgovori na pitanje: Koji
+        `flex-direction` trebalo bi da koristi navbar? <br /><strong
+          >Odgovor:</strong
+        >
+        `flex-direction: row;` (stavke pored jedne druge) <br />Dodaj to u
+        `.bonus .navbar` CSS pravilo.
+      </div>
+
+      <div class="navbar">
+        <button>Home</button>
+        <button>About</button>
+        <button>Services</button>
+        <button>Contact</button>
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>Real-world primena:</strong> Skoro svi navbar-i koriste
+        `flex-direction: row;` <br />Dugmad/linkovi su horizontalno poredani
+        jedan pored drugoga.
+      </div>
+    </div>
+
+    <!-- TABELA ZA PREGLED -->
+    <div class="exercise">
+      <h2>📊 Quick Reference - Flex Direction</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 15px">
+        <tr style="background: #f0f0f0">
+          <th style="border: 1px solid #ddd; padding: 10px; text-align: left">
+            Vrednost
+          </th>
+          <th style="border: 1px solid #ddd; padding: 10px; text-align: left">
+            Redosled
+          </th>
+          <th style="border: 1px solid #ddd; padding: 10px; text-align: left">
+            Main Axis
+          </th>
+          <th style="border: 1px solid #ddd; padding: 10px; text-align: left">
+            Primena
+          </th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            <code>row</code> (default)
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">Levo → Desno</td>
+          <td style="border: 1px solid #ddd; padding: 10px">Horizontalno</td>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            Navbar, search bar
+          </td>
+        </tr>
+        <tr style="background: #f9f9f9">
+          <td style="border: 1px solid #ddd; padding: 10px">
+            <code>column</code>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">Gore → Dole</td>
+          <td style="border: 1px solid #ddd; padding: 10px">Vertikalno</td>
+          <td style="border: 1px solid #ddd; padding: 10px">Sidebar, form</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            <code>row-reverse</code>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">Desno → Levo</td>
+          <td style="border: 1px solid #ddd; padding: 10px">Horizontalno</td>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            RTL jezici (arapski, hebrejski)
+          </td>
+        </tr>
+        <tr style="background: #f9f9f9">
+          <td style="border: 1px solid #ddd; padding: 10px">
+            <code>column-reverse</code>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">Dole → Gore</td>
+          <td style="border: 1px solid #ddd; padding: 10px">Vertikalno</td>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            Retko (specijalni slučajevi)
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- CEKLIST -->
+    <div class="exercise">
+      <h2>✅ Čeklist - Šta bi trebalo da vidiš</h2>
+      <ul style="margin-left: 20px; color: #666">
+        <li>✅ Zadatak 1: Četiri crvena kvadrata u REDU (horizontalno)</li>
+        <li>✅ Zadatak 2: Tri zelena pravougaonika u KOLONI (vertikalno)</li>
+        <li>
+          ✅ Zadatak 3: Četiri zelena kvadrata u REDU OBRNUTIM REDOM (4, 3, 2,
+          1)
+        </li>
+        <li>
+          ✅ Zadatak 4: Tri crvena pravougaonika u KOLONI OBRNUTIM REDOM (BOT,
+          MID, TOP)
+        </li>
+        <li>✅ Bonus: Četiri dugmeta u REDU (kao pravi navbar)</li>
+      </ul>
+    </div>
+  </body>
+</html>

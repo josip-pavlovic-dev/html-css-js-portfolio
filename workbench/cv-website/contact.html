@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kontakt stranica Josipa Pavlovića – email, LinkedIn, GitHub i kontakt forma."
+    />
+    <title>Kontakt | Josip Pavlović</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="about.html">O meni</a></li>
+          <li><a href="skills.html">Veštine</a></li>
+          <li><a href="projects.html">Projekti</a></li>
+          <li><a href="timeline.html">Iskustvo</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html" class="active">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <h1>Kontakt</h1>
+        <p class="tagline">
+          Otvoren sam za junior pozicije, freelance saradnju i mini-projekte za automatizaciju i
+          web.
+        </p>
+      </section>
+
+      <section class="contact-grid">
+        <div class="contact-card">
+          <h2>Piši mi direktno</h2>
+          <ul>
+            <li>
+              📧 Email:
+              <a href="mailto:jolepavlovic@outlook.com">jolepavlovic@outlook.com</a>
+            </li>
+            <li>📍 Lokacija: Novi Sad, Srbija</li>
+            <li>
+              💼 LinkedIn:
+              <a
+                href="https://www.linkedin.com/in/josip-p-151951338/"
+                target="_blank"
+                rel="noopener"
+                >Profil</a
+              >
+            </li>
+            <li>
+              🧑‍💻 GitHub:
+              <a href="https://github.com/josip-pavlovic-dev" target="_blank" rel="noopener"
+                >github.com/josip-pavlovic-dev</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-card">
+          <h2>Kontakt forma</h2>
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="name">Ime i prezime</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email adresa</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Poruka</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Pošalji poruku</button>
+          </form>
+          <p class="form-note">
+            Forma je trenutno statična – u sledećoj fazi planirano je povezivanje sa backend-om ili
+            mail servisom.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Josip Pavlović. Sva prava zadržana.</p>
+    </footer>
+  </body>
+</html>

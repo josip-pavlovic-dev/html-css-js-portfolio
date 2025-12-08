@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vežba 4: Main & Cross Axis Understanding</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+
+      .exercise {
+        background: white;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .instruction {
+        background: #e3f2fd;
+        padding: 12px;
+        border-left: 4px solid #2196f3;
+        margin-bottom: 20px;
+        border-radius: 4px;
+      }
+
+      .info {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 12px;
+        margin-top: 15px;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #856404;
+      }
+
+      .axis-diagram {
+        background: #f0f0f0;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 4px;
+        font-family: monospace;
+        white-space: pre;
+        overflow-x: auto;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      /* ============================================
+           ZADATAK 1: Main Axis sa flex-direction: row
+           ============================================ */
+
+      .task1 .container {
+        display: flex;
+        flex-direction: row;
+        border: 3px solid red;
+        padding: 20px;
+        margin-bottom: 20px;
+        gap: 10px;
+        min-height: 150px;
+        position: relative;
+      }
+
+      .task1 .container::before {
+        content: "Main Axis →";
+        position: absolute;
+        top: -30px;
+        left: 0;
+        font-weight: bold;
+        color: red;
+        font-size: 14px;
+      }
+
+      .task1 .container::after {
+        content: "Cross Axis ↓";
+        position: absolute;
+        left: -120px;
+        top: 0;
+        font-weight: bold;
+        color: blue;
+        font-size: 14px;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+      }
+
+      .task1 .item {
+        width: 80px;
+        height: 80px;
+        background: #ff6b6b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+      }
+
+      /* ============================================
+           ZADATAK 2: Main Axis sa flex-direction: column
+           ============================================ */
+
+      .task2 .container {
+        display: flex;
+        flex-direction: column;
+        border: 3px solid green;
+        padding: 20px;
+        margin-bottom: 20px;
+        gap: 10px;
+        width: 200px;
+        position: relative;
+      }
+
+      .task2 .container::before {
+        content: "Main Axis ↓";
+        position: absolute;
+        left: -110px;
+        top: 0;
+        font-weight: bold;
+        color: green;
+        font-size: 14px;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+      }
+
+      .task2 .container::after {
+        content: "Cross Axis →";
+        position: absolute;
+        top: -30px;
+        left: 0;
+        font-weight: bold;
+        color: blue;
+        font-size: 14px;
+      }
+
+      .task2 .item {
+        width: 100px;
+        height: 60px;
+        background: #4ecdc4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 14px;
+      }
+
+      /* ============================================
+           ZADATAK 3: Interaktivna simulacija
+           ============================================ */
+
+      .task3 .controls {
+        margin-bottom: 20px;
+      }
+
+      .task3 select {
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        background: white;
+      }
+
+      .task3 .container {
+        display: flex;
+        border: 3px solid purple;
+        padding: 20px;
+        gap: 10px;
+        min-height: 150px;
+        margin-bottom: 15px;
+        flex-direction: row; /* Default */
+      }
+
+      .task3 .item {
+        width: 70px;
+        height: 70px;
+        background: #95e1d3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 16px;
+      }
+
+      /* ============================================
+           ZADATAK 4: Quiz - Main vs Cross Axis
+           ============================================ */
+
+      .quiz {
+        background: #f5f5f5;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 4px;
+      }
+
+      .quiz label {
+        display: block;
+        margin: 8px 0;
+        cursor: pointer;
+      }
+
+      .quiz input[type="radio"] {
+        margin-right: 8px;
+      }
+
+      .btn-check {
+        margin-top: 10px;
+        padding: 8px 16px;
+        background: #2196f3;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .btn-check:hover {
+        background: #1976d2;
+      }
+
+      .result {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        display: none;
+      }
+
+      .result.correct {
+        background: #c8e6c9;
+        color: #2e7d32;
+        border: 1px solid #2e7d32;
+      }
+
+      .result.incorrect {
+        background: #ffcdd2;
+        color: #c62828;
+        border: 1px solid #c62828;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎯 Vežba 4: Understanding Main Axis & Cross Axis</h1>
+    <p>
+      Ovo je KONCEPTUALNA vežba - najvažnija za razumevanje Flexbox-a. NEMOJ
+      PRESKOČITI!
+    </p>
+
+    <!-- ZADATAK 1: Row Diagram -->
+    <div class="exercise task1">
+      <h2>Zadatak 1: Main & Cross Axis sa flex-direction: row</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Pazi na oznake "Main Axis" i
+        "Cross Axis" oko kontejnera. Shvatiti gde su ose je najvažnije!
+      </div>
+
+      <div style="margin-left: 150px; margin-top: 50px">
+        <div class="container">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+      </div>
+
+      <div class="axis-diagram">
+        flex-direction: row (DEFAULT) Main Axis je HORIZONTALNO (←→) - Stavke se
+        redaju jedno pored drugoga - justify-content radi na Main Axis-u
+        (horizontalno) Cross Axis je VERTIKALNO (↑↓) - align-items radi na Cross
+        Axis-u (vertikalno)
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>Memorisati:</strong> <br />- Main Axis = Pravac u kojem se
+        stavke REDAJU <br />- Cross Axis = Pravac okomit na Main Axis <br />- Za
+        `row`: Main=horizontal, Cross=vertical <br />- Za `column`:
+        Main=vertical, Cross=horizontal
+      </div>
+    </div>
+
+    <!-- ZADATAK 2: Column Diagram -->
+    <div class="exercise task2">
+      <h2>Zadatak 2: Main & Cross Axis sa flex-direction: column</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Pazi kako se OSE OKREĆU! Main
+        Axis je sada VERTIKALNO (umesto horizontalno). Cross Axis je
+        HORIZONTALNO.
+      </div>
+
+      <div style="margin-left: 150px; margin-top: 60px">
+        <div class="container">
+          <div class="item">A</div>
+          <div class="item">B</div>
+          <div class="item">C</div>
+        </div>
+      </div>
+
+      <div class="axis-diagram">
+        flex-direction: column Main Axis je VERTIKALNO (↑↓) - Stavke se redaju
+        jedno ispod drugoga - justify-content radi na Main Axis-u (vertikalno)
+        Cross Axis je HORIZONTALNO (←→) - align-items radi na Cross Axis-u
+        (horizontalno)
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>VAŽNA RAZLIKA:</strong> <br />Sa `row`: `justify-content` =
+        horizontalno, `align-items` = vertikalno <br />Sa `column`:
+        `justify-content` = vertikalno, `align-items` = horizontalno <br />Ose
+        se menjaju sa `flex-direction`!
+      </div>
+    </div>
+
+    <!-- ZADATAK 3: Interaktivna simulacija -->
+    <div class="exercise task3">
+      <h2>Zadatak 3: Interaktivna Simulacija - Promeni flex-direction</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Promeni vrednost ispod i PAZI
+        kako se stavke redaju i kako se OSE MENJAJU!
+      </div>
+
+      <div class="controls">
+        <label for="flex-direction-select"
+          ><strong>flex-direction:</strong></label
+        >
+        <select id="flex-direction-select" onchange="changeFlex()">
+          <option value="row">row</option>
+          <option value="column">column</option>
+          <option value="row-reverse">row-reverse</option>
+          <option value="column-reverse">column-reverse</option>
+        </select>
+      </div>
+
+      <div class="container" id="interactive-container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+
+      <div
+        id="axis-info"
+        style="
+          margin-top: 20px;
+          padding: 15px;
+          background: #f0f0f0;
+          border-radius: 4px;
+        "
+      >
+        <p>
+          <strong>Trenutna vrednost:</strong> <code>flex-direction: row</code>
+        </p>
+        <p><strong>Main Axis:</strong> Horizontalno (←→)</p>
+        <p><strong>Cross Axis:</strong> Vertikalno (↑↓)</p>
+      </div>
+
+      <div class="info" style="margin-top: 15px">
+        ℹ️ Menja `flex-direction` i gledaj kako se stavke i ose menjaju!
+        <br />Eksperimentiši! To je najbolji način da naučiš.
+      </div>
+    </div>
+
+    <!-- ZADATAK 4: Quiz -->
+    <div class="exercise">
+      <h2>Zadatak 4: Quiz - Proveri Razumevanje</h2>
+
+      <div class="quiz">
+        <h3 style="margin-bottom: 10px">❓ Pitanje 1: flex-direction: row</h3>
+        <p style="margin-bottom: 10px">
+          Kada je `flex-direction: row`, na kom AXIS-u radi `justify-content`?
+        </p>
+        <label>
+          <input type="radio" name="q1" value="correct" /> Horizontalno (←→) -
+          Main Axis
+        </label>
+        <label>
+          <input type="radio" name="q1" value="incorrect" /> Vertikalno (↑↓) -
+          Cross Axis
+        </label>
+        <button class="btn-check" onclick="checkQuestion(1)">
+          Proveri odgovor
+        </button>
+        <div id="result1" class="result"></div>
+      </div>
+
+      <div class="quiz">
+        <h3 style="margin-bottom: 10px">
+          ❓ Pitanje 2: flex-direction: column
+        </h3>
+        <p style="margin-bottom: 10px">
+          Kada je `flex-direction: column`, na kom AXIS-u radi `align-items`?
+        </p>
+        <label>
+          <input type="radio" name="q2" value="correct" /> Horizontalno (←→) -
+          Cross Axis
+        </label>
+        <label>
+          <input type="radio" name="q2" value="incorrect" /> Vertikalno (↑↓) -
+          Main Axis
+        </label>
+        <button class="btn-check" onclick="checkQuestion(2)">
+          Proveri odgovor
+        </button>
+        <div id="result2" class="result"></div>
+      </div>
+
+      <div class="quiz">
+        <h3 style="margin-bottom: 10px">❓ Pitanje 3: Razumevanje</h3>
+        <p style="margin-bottom: 10px">
+          Šta se dešava sa Cross Axis kada promeniš `flex-direction` iz `row` u
+          `column`?
+        </p>
+        <label>
+          <input type="radio" name="q3" value="incorrect" /> Ostaje isto
+        </label>
+        <label>
+          <input type="radio" name="q3" value="correct" /> Rotira se 90 stepeni
+          (iz vertical postaje horizontal)
+        </label>
+        <label>
+          <input type="radio" name="q3" value="incorrect" /> Nestaje
+        </label>
+        <button class="btn-check" onclick="checkQuestion(3)">
+          Proveri odgovor
+        </button>
+        <div id="result3" class="result"></div>
+      </div>
+    </div>
+
+    <!-- VEŽA MEMORIJE -->
+    <div
+      class="exercise"
+      style="background: #e3f2fd; border-left: 4px solid #2196f3"
+    >
+      <h2>🧠 Veža Memorije - Memorisati Ovo!</h2>
+      <p><strong>Main Axis = Redosled stavki</strong></p>
+      <p style="margin-bottom: 15px">
+        Gde se stavke REDAJU određuje `flex-direction`.
+        <br />- `row` → items redaju se levo-desno (Main = horizontal) <br />-
+        `column` → items redaju se gore-dole (Main = vertical)
+      </p>
+
+      <p><strong>Cross Axis = Suprotno Main</strong></p>
+      <p style="margin-bottom: 15px">
+        Kada se Main promeni, Cross se automatski promeni u suprotnom smeru.
+        <br />- Ako Main = horizontal, Cross = vertical <br />- Ako Main =
+        vertical, Cross = horizontal
+      </p>
+
+      <p><strong>Posledica - Svojstva se menjaju sa flex-direction!</strong></p>
+      <p>
+        - `justify-content` UVEK radi na Main Axis-u
+        <br />- `align-items` UVEK radi na Cross Axis-u <br />- Ako se Main
+        promeni, `justify-content` radi u drugom smeru!
+      </p>
+    </div>
+
+    <script>
+      function changeFlex() {
+        const select = document.getElementById("flex-direction-select");
+        const container = document.getElementById("interactive-container");
+        const infoDiv = document.getElementById("axis-info");
+
+        const value = select.value;
+        container.style.flexDirection = value;
+
+        let mainAxis = "";
+        let crossAxis = "";
+
+        if (value === "row") {
+          mainAxis = "Horizontalno (←→)";
+          crossAxis = "Vertikalno (↑↓)";
+        } else if (value === "column") {
+          mainAxis = "Vertikalno (↑↓)";
+          crossAxis = "Horizontalno (←→)";
+        } else if (value === "row-reverse") {
+          mainAxis = "Horizontalno (→←)";
+          crossAxis = "Vertikalno (↑↓)";
+        } else if (value === "column-reverse") {
+          mainAxis = "Vertikalno (↓↑)";
+          crossAxis = "Horizontalno (←→)";
+        }
+
+        infoDiv.innerHTML = `
+                <p><strong>Trenutna vrednost:</strong> <code>flex-direction: ${value}</code></p>
+                <p><strong>Main Axis:</strong> ${mainAxis}</p>
+                <p><strong>Cross Axis:</strong> ${crossAxis}</p>
+            `;
+      }
+
+      function checkQuestion(num) {
+        const options = document.querySelectorAll(
+          `input[name="q${num}"]:checked`
+        );
+        const resultDiv = document.getElementById(`result${num}`);
+
+        if (options.length === 0) {
+          resultDiv.textContent = "⚠️ Izaberi odgovor!";
+          resultDiv.style.display = "block";
+          return;
+        }
+
+        const answer = options[0].value;
+        const isCorrect = answer === "correct";
+
+        resultDiv.className = `result ${isCorrect ? "correct" : "incorrect"}`;
+        resultDiv.textContent = isCorrect
+          ? "✅ Odličan odgovor! Razumeš koncept!"
+          : "❌ Nije tačno. Pročitaj ponovo objašnjenje.";
+        resultDiv.style.display = "block";
+      }
+    </script>
+  </body>
+</html>

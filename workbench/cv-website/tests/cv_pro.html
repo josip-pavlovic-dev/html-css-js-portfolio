@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="sr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Josip Pavlović – Junior Web Developer portfolio sajt. HTML, CSS, projekti i kontakt."
+    />
+    <title>Josip Pavlović | Web Developer</title>
+    <!-- Favikona -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Google Font (Inter) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Glavni CSS -->
+    <link rel="stylesheet" href="pro.css" />
+  </head>
+  <body>
+    <!-- HEADER / NAV -->
+    <header class="site-header">
+      <nav class="site-header__nav" aria-label="Glavna navigacija">
+        <a href="index.html" class="site-header__brand">
+          <span class="site-header__logo">JP</span>
+          <span class="site-header__title">Josip Pavlović · Web Developer</span>
+        </a>
+        <div class="site-header__controls">
+          <ul class="site-nav__list" id="nav-list">
+            <li class="site-nav__item">
+              <a href="index.html" class="site-nav__link site-nav__link--active" aria-current="page"
+                >Početna</a
+              >
+            </li>
+            <li class="site-nav__item">
+              <a href="about.html" class="site-nav__link">O meni</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="skills.html" class="site-nav__link">Veštine</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="projects.html" class="site-nav__link">Projekti</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="timeline.html" class="site-nav__link">Iskustvo</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="blog.html" class="site-nav__link">Blog</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="contact.html" class="site-nav__link">Kontakt</a>
+            </li>
+          </ul>
+          <!-- Dugme za promenu teme (light/dark) -->
+          <button type="button" class="theme-toggle" aria-label="Promeni temu">🌙</button>
+          <!-- Burger dugme za mobilni meni -->
+          <button
+            type="button"
+            class="site-nav__toggle"
+            aria-label="Otvorite meni"
+            aria-expanded="false"
+            aria-controls="nav-list"
+          >
+            <span class="site-nav__toggle-bar"></span>
+            <span class="site-nav__toggle-bar"></span>
+            <span class="site-nav__toggle-bar"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="site-main">
+      <!-- HERO sekcija (Grid: leva kolona tekst, desna kolona slika/placeholder) -->
+      <section class="hero">
+        <div class="hero__inner">
+          <!-- Leva kolona (tekstualni sadržaj) -->
+          <div class="hero__content">
+            <p class="hero__eyebrow">Junior Web &amp; Python Developer</p>
+            <h1 class="hero__title">Zdravo, ja sam Josip 👋</h1>
+            <p class="hero__subtitle">
+              Junior Web Developer sa strašću za automatizaciju, podatke i čist kod.
+            </p>
+            <div class="hero__actions">
+              <a href="projects.html" class="btn-primary">Pogledaj moje projekte</a>
+              <a href="assets/cv/cv_en.pdf" class="btn-secondary" download>Preuzmi CV (EN, PDF)</a>
+            </div>
+          </div>
+          <!-- Desna kolona (profil fotografija ili placeholder) -->
+          <div class="hero__media">
+            <div class="hero__photo-placeholder">
+              Josip Pavlović<br />
+              Portfolio u izgradnji
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ostatak sadržaja stranice... -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">&copy; 2025 Josip Pavlović. Sva prava zadržana.</p>
+      </div>
+    </footer>
+
+    <!-- Skripta za meni i promenu teme -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector(".site-header");
+        const navToggle = document.querySelector(".site-nav__toggle");
+        const themeToggle = document.querySelector(".theme-toggle");
+
+        // Toggle mobilnog menija (burger dugme)
+        navToggle.addEventListener("click", () => {
+          const menuOtvoren = header.classList.toggle("site-header--open");
+          navToggle.setAttribute("aria-expanded", menuOtvoren);
+          navToggle.setAttribute("aria-label", menuOtvoren ? "Zatvorite meni" : "Otvorite meni");
+        });
+
+        // Inicijalno podešavanje teme na osnovu lokalne memorije ili sistemske preferencije
+        let trenutnaTema = localStorage.getItem("theme");
+        if (!trenutnaTema) {
+          // Ako nema snimljenog izbora, proveri preferencije korisnika
+          trenutnaTema = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+        document.documentElement.setAttribute("data-theme", trenutnaTema);
+        // Postavi ikonicu i oznaku dugmeta na osnovu početne teme
+        themeToggle.textContent = trenutnaTema === "dark" ? "🌞" : "🌙";
+        themeToggle.setAttribute(
+          "aria-label",
+          trenutnaTema === "dark" ? "Promeni na svetlu temu" : "Promeni na tamnu temu"
+        );
+
+        // Klik na dugme za promenu teme
+        themeToggle.addEventListener("click", () => {
+          const novaTema =
+            document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", novaTema);
+          localStorage.setItem("theme", novaTema);
+          // Ažuriraj ikonicu i ARIA oznaku
+          themeToggle.textContent = novaTema === "dark" ? "🌞" : "🌙";
+          themeToggle.setAttribute(
+            "aria-label",
+            novaTema === "dark" ? "Promeni na svetlu temu" : "Promeni na tamnu temu"
+          );
+        });
+
+        // Prati promene sistemske teme u realnom vremenu (ako korisnik nije eksplicitno izabrao temu)
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            const sistemskaTema = e.matches ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", sistemskaTema);
+            themeToggle.textContent = sistemskaTema === "dark" ? "🌞" : "🌙";
+            themeToggle.setAttribute(
+              "aria-label",
+              sistemskaTema === "dark" ? "Promeni na svetlu temu" : "Promeni na tamnu temu"
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

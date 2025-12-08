@@ -1,0 +1,673 @@
+/* ===================================
+   0. RESET & GLOBAL SETTINGS
+   (najpre počistimo podrazumevani stil)
+=================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===================================
+   1. ROOT VARIABLES (boje, font, širine)
+   - menjaš vrednosti ovde i ceo sajt se prilagodi
+=================================== */
+
+:root {
+  --color-bg: #020617; /* pozadina stranice */
+  --color-surface: #0b1120; /* pozadina kartica / sekcija */
+  --color-border: #1f2937; /* boja ivica i linija */
+  --color-text: #e5e7eb; /* osnovna boja teksta */
+  --color-muted: #9ca3af; /* za sekundarni tekst */
+  --color-primary: #38bdf8; /* glavna akcent boja */
+  --color-primary-soft: rgb(56 189 248 / 16%); /* prozirnija verzija */
+  --font-sans: "Inter", system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+    sans-serif;
+  --radius-md: 0.75rem; /* za kartice i sekcije */
+  --radius-full: 999px; /* za dugmad i okrugle elemente */
+  --shadow-soft: 0 18px 45px rgb(15 23 42 / 65%); /* za kartice i dugmad */
+  --max-width: 980px; /* maksimalna širina sadržaja */
+  --spacing-section: 3rem; /* razmak između sekcija */
+}
+
+/* ===================================
+   2. BASE STYLES (body, tekst, linkovi)
+=================================== */
+
+body {
+  font-family: var(--font-sans);
+  background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+main {
+  max-width: var(--max-width);
+  padding: 2.5rem 1.5rem 4rem;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2; /* malo zbijeniji naslovi */
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin: 0 0 0.9rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+/* ===================================
+   3. LAYOUT: HEADER, NAV, FOOTER
+=================================== */
+
+/* HEADER / NAV WRAPPER */
+.site-header {
+  border-bottom: 1px solid rgb(15 23 42 / 90%);
+  background: rgb(15 23 42 / 98%);
+  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Unutrašnji flex kontejner */
+.site-header-nav {
+  max-width: var(--max-width); /* ista širina kao main */
+  margin: 0 auto; /* centriranje */
+  padding: 0.75rem 1.5rem; /* vertikalni i horizontalni padding */
+  display: flex; /* flex za raspored elemenata */
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Brand (logo + ime) */
+.site-header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.site-header-logo {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 30% 0%,
+    #38bdf8,
+    #0ea5e9 60%,
+    #0369a1 100%
+  );
+  color: #020617;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-header-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+/* NAV LISTA */
+.site-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-left: auto; /* gura meni udesno od branda */
+}
+
+/* NAV LINKOVI */
+.site-nav-link {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.site-nav-link:hover,
+.site-nav-link:focus-visible {
+  background: rgb(15 23 42 / 90%);
+  border-color: rgb(31 41 55 / 90%);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Aktivni link (po stranici) */
+.site-nav-link-active {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.site-nav-link-active::before {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.4rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+/* FOOTER */
+
+.site-footer {
+  border-top: 1px solid rgb(15 23 42 / 90%);
+  padding: 1.25rem 1.5rem 2rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  background: rgb(15 23 42 / 98%);
+}
+
+.site-footer-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.site-footer-copy {
+  margin: 0;
+}
+
+/* ===================================
+   4. TAGLINE STYLES (ispod glavnog naslova)
+=================================== */
+.tagline-list {
+  list-style: none; /* skida default bullet */
+  padding: 0;
+  margin: 0.5rem 0 0; /* malo ispod glavne tagline rečenice */
+}
+
+.tagline-list li {
+  margin-bottom: 0.25rem; /* razmak između stavki */
+  color: var(--color-muted); /* ista boja kao tagline */
+}
+
+/* ===================================
+   5. HERO SEKCIJE (index.html i ostale stranice)
+=================================== */
+
+/* Glavni hero na index.html */
+.hero {
+  padding: 4rem 1.5rem 3rem;
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* MOBILE: 1 kolona (tekst gore, slika dole) */
+
+/* DESKTOP: 2 kolone (tekst levo, slika desno) */
+@media (width >= 768px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  }
+
+  .hero-content {
+    text-align: left;
+  }
+}
+
+/* Leva kolona */
+
+.hero-content {
+  text-align: center; /* mobile default */
+}
+
+.hero-eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin: 0 0 0.75rem;
+}
+
+.hero-title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.75rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.hero-subtitle {
+  max-width: 32rem;
+  margin: 0.5rem auto 1.75rem;
+  color: var(--color-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* Desna kolona */
+
+.hero-media {
+  justify-self: center;
+}
+
+.hero-photo-placeholder {
+  width: 220px;
+  height: 220px;
+  border-radius: 1.5rem;
+  border: 1px solid rgb(148 163 184 / 50%);
+  background: radial-gradient(
+    circle at 10% 0%,
+    #38bdf8,
+    #0f172a 60%,
+    #020617 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+/* Page hero sekcije na ostalim stranicama */
+.page-hero {
+  padding: 3rem 1.5rem 2rem;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  text-align: left;
+}
+
+.page-hero h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.75rem;
+}
+
+.page-hero h1::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.75rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.page-hero .tagline {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* ===================================
+   5. DUGMAD & LINK LISTE
+=================================== */
+
+/*
+.btn-primary {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #020617;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: #0ea5e9;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 22px 55px rgba(8, 47, 73, 0.9);
+  filter: brightness(1.05);
+  outline: 2px solid var(--color-primary-soft);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.link-list a {
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.link-list a::after {
+  content: "↗";
+  font-size: 0.8rem;
+  margin-left: 0.35rem;
+  opacity: 0.7;
+}
+
+.link-list a:hover {
+  border-color: var(--color-primary);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.link-list a:hover::after {
+  opacity: 1;
+} */
+
+/* ===================================
+   6. SECTIONS: ABOUT, SKILLS, TIMELINE, BLOG, CONTACT
+   (osnovni layout – posle ćemo dorađivati)
+=================================== */
+
+section {
+  margin-bottom: var(--spacing-section);
+}
+
+/* About page */
+
+.about-intro,
+.about-focus,
+.about-facts,
+.about-links {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(15 23 42 / 90%);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-intro + .about-focus,
+.about-focus + .about-facts,
+.about-facts + .about-links {
+  margin-top: 1.5rem;
+}
+
+.about-focus ul {
+  padding-left: 1.2rem;
+}
+
+.about-intro h2 {
+  font-size: 1.4rem; /* malo veći naslov u uvodu */
+  margin-bottom: 0.75rem; /* razmak između h2 i prvog pasusa */
+}
+
+.about-intro p + p {
+  margin-top: 0.75rem; /* dodatni razmak između 1. i 2. pasusa */
+}
+
+.about-focus h2,
+.about-facts h2,
+.about-links h2 {
+  font-size: 1.2rem; /* konzistentna veličina naslova za sekcije */
+  margin-bottom: 0.75rem; /* razmak od sadržaja ispod */
+}
+
+.about-intro-list li {
+  margin-bottom: 0.35rem; /* razmak između bullet stavki */
+}
+
+.about-focus ul li {
+  margin-bottom: 0.4rem; /* malo “vazduha” između bullet stavki */
+}
+
+/* Dekorativna linija ispod svakog About naslova */
+
+.about-intro h2::after,
+.about-focus h2::after,
+.about-facts h2::after,
+.about-links h2::after {
+  content: ""; /* obavezan content za ::after */
+  display: block; /* da linija zauzme ceo red ispod teksta */
+  width: 2.5rem; /* dužina linije */
+  height: 2px; /* debljina linije */
+  margin-top: 0.4rem; /* razmak između teksta naslova i linije */
+  border-radius: 999px; /* zaobljeni krajevi linije */
+  background: var(--color-primary); /* koristi glavnu akcent boju */
+}
+
+/* Lepši raspored “Brze činjenice” */
+
+.about-facts dl {
+  display: grid; /* raster za parove dt/dd */
+  gap: 0.8rem 1.5rem; /* razmak između redova i kolona */
+}
+
+.about-facts dl div {
+  display: grid; /* dt i dd u malom gridu */
+  gap: 0.15rem; /* mali razmak između dt i dd */
+}
+
+.about-facts dt {
+  font-size: 0.85rem; /* manji naslov “etiketa” */
+  text-transform: uppercase; /* VELIKA SLOVA za etikete */
+  letter-spacing: 0.06em; /* razmak između slova */
+  color: var(--color-muted); /* svetlija, “label” boja */
+}
+
+.about-facts dd {
+  margin: 0; /* reset default margine dd */
+  font-weight: 500; /* malčice istaknut tekst vrednosti */
+}
+
+.about-intro-list {
+  list-style: disc; /* klasični bullet */
+  padding-left: 1.2rem; /* prostor za bullet */
+  margin: 0.75rem 0 0; /* razmak od h2 */
+}
+
+/* Skills */
+
+.skills-grid ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.skills-grid {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(15 23 42 / 90%);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1.5rem;
+}
+
+/* Timeline */
+
+.timeline {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(15 23 42 / 90%);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.timeline ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid rgb(55 65 81 / 90%);
+}
+
+.timeline-item {
+  padding-left: 1.25rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -0.47rem;
+  top: 0.25rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.timeline time {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-bottom: 0.2rem;
+}
+
+/* Blog */
+
+.blog-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.blog-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(15 23 42 / 90%);
+  padding: 1.6rem 1.4rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.blog-card time {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+/* Contact */
+
+.contact-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(15 23 42 / 90%);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 0.9rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgb(51 65 85 / 90%);
+  background: rgb(15 23 42 / 90%);
+  color: var(--color-text);
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+
+.form-note {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* ===================================
+   7. RESPONSIVE LAYOUT (GRIDEVI & NAV)
+   - ovde postepeno dodajemo media querije
+=================================== */
+
+@media (width >= 680px) {
+  .blog-list,
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1024px) {
+  .hero,
+  .page-hero {
+    padding-top: 5rem;
+  }
+}
