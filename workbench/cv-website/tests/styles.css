@@ -1,0 +1,774 @@
+/* ===================================
+   0. RESET & GLOBAL SETTINGS
+   (najpre počistimo podrazumevani stil)
+=================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ===================================
+   1. ROOT VARIABLES (boje, font, širine)
+   - menjaš vrednosti ovde i ceo sajt se prilagodi
+=================================== */
+
+:root {
+  /* boje */
+  --color-bg: #fdf6e3;
+  --color-text: #111827;
+  --color-muted: #4b5563;
+  --color-primary: #4a90e2;
+  --color-primary-soft: rgba(74, 144, 226, 0.12);
+  --color-hover: #e1e1e1;
+  --color-nav-bg: #ffffff;
+
+  /* tipografija */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+
+  /* layout & dekoracija */
+  --max-width: 72rem;
+  --radius-full: 999px;
+  --radius-md: 0.75rem;
+  --color-surface: #ffffff;
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.15);
+  --spacing-section: 2.5rem;
+}
+/* ===================================
+   2. BASE STYLES (body, tekst, linkovi)
+=================================== */
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg); /* svetla pozadina, isto kao hero */
+  color: var(--color-text);
+  line-height: 1.6;
+}
+main {
+  max-width: var(--max-width);
+  padding: 2.5rem 1.5rem 4rem;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin: 0 0 0.9rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+/* ==========================
+   HEADER / NAV / FOOTER
+========================== */
+
+/* ==========================
+   HEADER / NAV / FOOTER
+========================== */
+
+/* SPOLJAŠNJI KONTEJNER HEADERA */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  background: var(--color-nav-bg);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+/* Unutrašnji flex kontejner (brand + nav lista) */
+.site-header__nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+/* BRAND (logo + tekst) */
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  text-decoration: none;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.site-header__logo {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: var(--radius-full);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(circle at 30% 0%, #4a90e2, #2563eb 70%, #1d4ed8 100%);
+  color: #f9fafb;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-header__title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+/* NAV LISTA – fleksibilna, gura se udesno */
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-left: auto; /* ključ: sve posle branda ide skroz desno */
+  flex-direction: row;
+}
+
+/* LINKS – osnovni stil */
+.site-nav__link {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-muted);
+
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: transparent;
+
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+/* Hover + tastaturni fokus */
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  background: var(--color-hover);
+  border-color: rgba(148, 163, 184, 0.7);
+  color: var(--color-text);
+
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+  outline: none; /* oslanjamo se na custom stil, ne na default outline */
+}
+
+/* Aktivni link (trenutna stranica) */
+.site-nav__link--active {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.site-nav__link--active::before {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.4rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+}
+
+/* BURGER dugme – osnovni stil (po difoltu skriven, vidi se u media queriju) */
+.site-header__toggle {
+  display: none; /* desktop: skriven */
+  margin-left: auto;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: #ffffff;
+  padding: 0;
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.site-header__toggle-line {
+  display: block;
+  width: 1.3rem;
+  height: 2px;
+  border-radius: 999px;
+  background: #111827;
+  position: relative;
+}
+
+.site-header__toggle-line::before,
+.site-header__toggle-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1.3rem;
+  height: 2px;
+  border-radius: 999px;
+  background: #111827;
+}
+
+.site-header__toggle-line::before {
+  top: -5px;
+}
+
+.site-header__toggle-line::after {
+  top: 5px;
+}
+
+@media (max-width: 640px) {
+  .site-header__nav {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+  }
+
+  .site-header__toggle {
+    display: inline-flex;
+  }
+
+  /* --- GLAVNI DODATAK --- */
+  .site-nav__list {
+    width: 100%;
+    display: none; /* skriven dok se ne otvori */
+    flex-direction: column; /* ❗ menja redosled: stavke idu ispod jedna druge */
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    background: var(--color-nav-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .site-header.site-header--open .site-nav__list {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FOOTER */
+
+.site-footer {
+  border-top: 1px solid rgba(15, 23, 42, 0.12);
+  background: #f9fafb;
+  padding: 1.25rem 1.5rem 2rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.site-footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.site-footer__copy {
+  margin: 0;
+}
+/* ===================================
+   4. TAGLINE STYLES (ispod glavnog naslova)
+=================================== */
+.tagline-list {
+  list-style: none; /* skida default bullet */
+  padding: 0;
+  margin: 0.5rem 0 0; /* malo ispod glavne tagline rečenice */
+}
+
+.tagline-list li {
+  margin-bottom: 0.25rem; /* razmak između stavki */
+  color: var(--color-muted); /* ista boja kao tagline */
+}
+
+/* ==========================
+   HERO – index.html
+========================== */
+
+.hero {
+  padding: 4rem 1.5rem 3rem;
+  background: var(--color-bg);
+}
+
+.hero__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* mobile: 1 kolona; desktop: 2 kolone */
+@media (min-width: 768px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  }
+
+  .hero__content {
+    text-align: left;
+  }
+}
+
+.hero__content {
+  text-align: center; /* default na mobilnom */
+}
+
+.hero__eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin: 0 0 0.75rem;
+}
+
+.hero__title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+}
+
+.hero__subtitle {
+  max-width: 32rem;
+  margin: 0.5rem auto 1.75rem;
+  color: var(--color-muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* desna kolona */
+
+.hero__media {
+  justify-self: center;
+}
+
+.hero__photo-placeholder {
+  width: 220px;
+  height: 220px;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: radial-gradient(circle at 10% 0%, #4a90e2, #0f172a 60%, #020617 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+/* Dugmad */
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.3rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #f9fafb;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text);
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: var(--color-hover);
+}
+
+/* ===================================
+   5. DUGMAD & LINK LISTE
+=================================== */
+/*
+.btn-primary {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #020617;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: #0ea5e9;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 22px 55px rgba(8, 47, 73, 0.9);
+  filter: brightness(1.05);
+  outline: 2px solid var(--color-primary-soft);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.link-list a {
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.link-list a::after {
+  content: "↗";
+  font-size: 0.8rem;
+  margin-left: 0.35rem;
+  opacity: 0.7;
+}
+
+.link-list a:hover {
+  border-color: var(--color-primary);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.link-list a:hover::after {
+  opacity: 1;
+} */
+
+/* ===================================
+   6. SECTIONS: ABOUT, SKILLS, TIMELINE, BLOG, CONTACT
+   (osnovni layout – posle ćemo dorađivati)
+=================================== */
+
+section {
+  margin-bottom: var(--spacing-section);
+}
+
+/* About page */
+
+.about-intro,
+.about-focus,
+.about-facts,
+.about-links {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-intro + .about-focus,
+.about-focus + .about-facts,
+.about-facts + .about-links {
+  margin-top: 1.5rem;
+}
+
+.about-focus ul {
+  padding-left: 1.2rem;
+}
+
+.about-intro h2 {
+  font-size: 1.4rem; /* malo veći naslov u uvodu */
+  margin-bottom: 0.75rem; /* razmak između h2 i prvog pasusa */
+}
+
+.about-intro p + p {
+  margin-top: 0.75rem; /* dodatni razmak između 1. i 2. pasusa */
+}
+
+.about-focus h2,
+.about-facts h2,
+.about-links h2 {
+  font-size: 1.2rem; /* konzistentna veličina naslova za sekcije */
+  margin-bottom: 0.75rem; /* razmak od sadržaja ispod */
+}
+
+.about-focus ul li {
+  margin-bottom: 0.4rem; /* malo “vazduha” između bullet stavki */
+}
+
+/* Dekorativna linija ispod svakog About naslova */
+
+.about-intro h2::after,
+.about-focus h2::after,
+.about-facts h2::after,
+.about-links h2::after {
+  content: ""; /* obavezan content za ::after */
+  display: block; /* da linija zauzme ceo red ispod teksta */
+  width: 2.5rem; /* dužina linije */
+  height: 2px; /* debljina linije */
+  margin-top: 0.4rem; /* razmak između teksta naslova i linije */
+  border-radius: 999px; /* zaobljeni krajevi linije */
+  background: var(--color-primary); /* koristi glavnu akcent boju */
+}
+
+/* Lepši raspored “Brze činjenice” */
+
+.about-facts dl {
+  display: grid; /* raster za parove dt/dd */
+  gap: 0.8rem 1.5rem; /* razmak između redova i kolona */
+}
+
+.about-facts dl div {
+  display: grid; /* dt i dd u malom gridu */
+  gap: 0.15rem; /* mali razmak između dt i dd */
+}
+
+.about-facts dt {
+  font-size: 0.85rem; /* manji naslov “etiketa” */
+  text-transform: uppercase; /* VELIKA SLOVA za etikete */
+  letter-spacing: 0.06em; /* razmak između slova */
+  color: var(--color-muted); /* svetlija, “label” boja */
+}
+
+.about-facts dd {
+  margin: 0; /* reset default margine dd */
+  font-weight: 500; /* malčice istaknut tekst vrednosti */
+}
+
+.about-intro-list {
+  list-style: disc; /* klasični bullet */
+  padding-left: 1.2rem; /* prostor za bullet */
+  margin: 0.75rem 0 0; /* razmak od h2 */
+}
+
+.about-intro-list li {
+  margin-bottom: 0.35rem; /* razmak između bullet stavki */
+}
+
+/* Skills */
+
+.skills-grid ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.skills-grid {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1.5rem;
+}
+
+/* Timeline */
+
+.timeline {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.timeline ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid rgba(55, 65, 81, 0.9);
+}
+
+.timeline-item {
+  padding-left: 1.25rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -0.47rem;
+  top: 0.25rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.timeline time {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-bottom: 0.2rem;
+}
+
+/* Blog */
+
+.blog-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.blog-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  padding: 1.6rem 1.4rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.blog-card time {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+/* Contact */
+
+.contact-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 0.9rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(51, 65, 85, 0.9);
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--color-text);
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+
+.form-note {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* ===================================
+   7. RESPONSIVE LAYOUT (GRIDEVI & NAV)
+   - ovde postepeno dodajemo media querije
+=================================== */
+
+@media (min-width: 680px) {
+  .blog-list,
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero,
+  .page-hero {
+    padding-top: 5rem;
+  }
+}

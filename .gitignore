@@ -145,5 +145,10 @@ vite.config.ts.timestamp-*
 .venv/
 venv/
 
-# Local workbench (daily learning logs, not for public repo)
-workbench/
+# Local learning logs (personal progress tracking)
+workbench/learning-progress/
+
+# Archive of old sessions (not needed in repo)
+workbench/legacy/
+workbench/scratch/
+

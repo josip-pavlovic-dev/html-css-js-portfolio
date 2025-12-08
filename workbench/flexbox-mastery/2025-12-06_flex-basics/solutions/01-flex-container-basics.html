@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>✅ SOLUTION: Vežba 1 - Flex Container Basics</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+
+      .exercise {
+        background: white;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #2e7d32;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      .solution-note {
+        background: #c8e6c9;
+        border-left: 4px solid #2e7d32;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+      }
+
+      /* REŠENJA - KOPIRA IZ OVDJE */
+
+      /* REŠENJE 1 */
+      .task1 .container {
+        display: flex; /* ✅ REŠENJE: Dodano display: flex; */
+        border: 2px solid blue;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      .task1 .item {
+        width: 100px;
+        height: 100px;
+        background: #ff6b6b;
+        margin: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+      }
+
+      /* REŠENJE 2 */
+      .task2 .container {
+        display: flex; /* ✅ REŠENJE */
+        gap: 10px; /* ✅ REŠENJE */
+        border: 2px solid green;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      .task2 .item {
+        width: 80px;
+        height: 80px;
+        background: #4ecdc4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 16px;
+      }
+
+      /* REŠENJE 3 */
+      .task3 .container {
+        display: flex; /* ✅ REŠENJE */
+        padding: 20px; /* ✅ JE VEĆ BILO */
+        border: 2px solid purple;
+        margin-bottom: 20px;
+      }
+
+      .task3 .item {
+        width: 120px;
+        height: 60px;
+        background: #95e1d3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+      }
+
+      /* REŠENJE 4 */
+      .task4 .container {
+        display: flex; /* ✅ REŠENJE */
+        border: 2px solid orange;
+        padding: 15px;
+      }
+
+      .task4 .item {
+        background: #f38181;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        margin: 5px;
+      }
+
+      .task4 .small {
+        width: 60px;
+        height: 60px;
+      }
+
+      .task4 .medium {
+        width: 100px;
+        height: 100px;
+      }
+
+      .task4 .large {
+        width: 140px;
+        height: 140px;
+      }
+
+      code-block {
+        background: #f0f0f0;
+        padding: 10px;
+        display: block;
+        margin: 10px 0;
+        border-radius: 4px;
+        font-family: monospace;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>✅ SOLUTION - Vežba 1: Flex Container Basics</h1>
+
+    <!-- REŠENJE 1 -->
+    <div class="exercise task1">
+      <h2>✅ Rešenje 1: Flex Container (Osnovno)</h2>
+      <div class="solution-note">
+        ✅ <strong>REŠENJE:</strong> Dodaj `display: flex;` u `.task1
+        .container`
+      </div>
+
+      <code-block>
+        .task1 .container { display: flex; /* ✅ Ključna linija */ border: 2px
+        solid blue; padding: 10px; margin-bottom: 20px; }
+      </code-block>
+
+      <p><strong>Rezultat:</strong></p>
+      <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+
+      <p style="margin-top: 15px; color: #666">
+        <strong>Objašnjenje:</strong> Sa `display: flex;`, `.container` postaje
+        Flex kontejner. Svi direktni children (`.item` elementi) se automatski
+        redaju horizontalno umesto vertikalno.
+      </p>
+    </div>
+
+    <!-- REŠENJE 2 -->
+    <div class="exercise task2">
+      <h2>✅ Rešenje 2: Flex sa Gap (Razmak)</h2>
+      <div class="solution-note">
+        ✅ <strong>REŠENJE:</strong> Dodaj `display: flex;` i `gap: 10px;`
+      </div>
+
+      <code-block>
+        .task2 .container { display: flex; /* ✅ Aktivira Flexbox */ gap: 10px;
+        /* ✅ Razmak između stavki */ border: 2px solid green; padding: 10px;
+        margin-bottom: 20px; }
+      </code-block>
+
+      <p><strong>Rezultat:</strong></p>
+      <div class="container">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+      </div>
+
+      <p style="margin-top: 15px; color: #666">
+        <strong>Napomena:</strong> `gap` je moderniji pristup od `margin`.
+        Grantuje točno razmak između stavki bez dvostrukog razmaka na krajevima.
+      </p>
+    </div>
+
+    <!-- REŠENJE 3 -->
+    <div class="exercise task3">
+      <h2>✅ Rešenje 3: Flex sa Padding</h2>
+      <div class="solution-note">
+        ✅ <strong>REŠENJE:</strong> Dodaj `display: flex;` (padding je već bio)
+      </div>
+
+      <code-block>
+        .task3 .container { display: flex; /* ✅ Rešenje */ padding: 20px; /*
+        Već postojeće */ border: 2px solid purple; margin-bottom: 20px; }
+      </code-block>
+
+      <p><strong>Rezultat:</strong></p>
+      <div class="container">
+        <div class="item">X</div>
+        <div class="item">Y</div>
+        <div class="item">Z</div>
+      </div>
+
+      <p style="margin-top: 15px; color: #666">
+        <strong>Box Model:</strong> Vidiš kako `padding: 20px;` kreira razmak
+        UNUTAR kontejnera? Stavke su odmaknute od ivice.
+      </p>
+    </div>
+
+    <!-- REŠENJE 4 -->
+    <div class="exercise task4">
+      <h2>✅ Rešenje 4: Flex sa Različitim Veličinama</h2>
+      <div class="solution-note">
+        ✅ <strong>REŠENJE:</strong> Dodaj `display: flex;` u `.task4
+        .container`
+      </div>
+
+      <code-block>
+        .task4 .container { display: flex; /* ✅ Rešenje */ border: 2px solid
+        orange; padding: 15px; }
+      </code-block>
+
+      <p><strong>Rezultat:</strong></p>
+      <div class="container">
+        <div class="item small">S</div>
+        <div class="item medium">M</div>
+        <div class="item large">L</div>
+      </div>
+
+      <p style="margin-top: 15px; color: #666">
+        <strong>Važno:</strong> Flex stavke sačuvavaju svoju originalno
+        deklarisanu veličinu. Bez dodatnih flex svojstava (koja učiš u Dan 3),
+        oni jednostavno sačuvavaju svoju `width` i `height`.
+      </p>
+    </div>
+
+    <!-- ZAKLJUČAK -->
+    <div
+      class="exercise"
+      style="background: #e8f5e9; border-left: 4px solid #2e7d32"
+    >
+      <h2>🎯 Zaključak Vežbe 1</h2>
+      <p><strong>Tri ključne stvari:</strong></p>
+      <ul style="margin-left: 20px; color: #333">
+        <li>`display: flex;` je SVE što trebaš da počneš - aktivira Flexbox</li>
+        <li>`gap` je moderan način da dodaš razmak između stavki</li>
+        <li>Bez dodatnih svojstava, flex stavke sačuvavaju svoju veličinu</li>
+      </ul>
+
+      <p style="margin-top: 15px">
+        <strong>Sledeća vežba:</strong> Dan 2 sa `justify-content` i
+        `align-items` - SUPER MOĆNA svojstva!
+      </p>
+    </div>
+
+    <!-- COPY-PASTE REŠENJA -->
+    <div
+      class="exercise"
+      style="background: #fff3cd; border-left: 4px solid #ffc107"
+    >
+      <h2>📋 Ako Želiš Kompletan CSS za Dan 1</h2>
+      <p>Evo svih rešenja odjednom (ako si zaglavljen):</p>
+      <code-block>
+        /* Vežba 1 */ .task1 .container { display: flex; } /* Vežba 2 */ .task2
+        .container { display: flex; gap: 10px; } /* Vežba 3 */ .task3 .container
+        { display: flex; } /* Vežba 4 */ .task4 .container { display: flex; }
+      </code-block>
+      <p style="margin-top: 10px; color: #856404">
+        <strong>Savet:</strong> Probaj samo sa ovim - ne gledaj sve vežbe
+        odjednom. Radi jednu po jednu i razume šta se dešava!
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+.main {
+  margin-top: 100px;
+}
+
+/* Challenge: Center the logo and search input on the page */
+.logo-img {
+  display: block;
+  width: 300px;
+  margin: 0 auto 1.25rem;
+}
+
+.search-input {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px 30px;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  line-height: 24px; /* Ovim dobijamo vertikalno centriranje teksta unutar input polja */
+}
+
+/* Challenge:
+1. Center the button an add some space above it
+2. Style the button according to the provided design.
+    Hint: Use padding, font-size, border-radius, border, and background
+
+    PS:
+    The real background is #f8f9fa but it is failing our contrast check.
+    So here's the background color we will use: #dfe1e5
+*/
+.btn {
+  padding: 10px 20px; /* Unutrašnje margine za povećanje veličine dugmeta */
+  font-size: 16px; /* Veličina fonta */
+  border-radius: 4px; /* Zaobljeni uglovi */
+  border: 1px solid #dfe1e5; /* Boja ivice */
+  background-color: #dfe1e5; /* Boja pozadine */
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Razmak između dugmadi */
+  margin-top: 30px; /* Razmak iznad dugmadi */
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vežba 3: Flex Wrap</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+
+      .exercise {
+        background: white;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .instruction {
+        background: #e3f2fd;
+        padding: 12px;
+        border-left: 4px solid #2196f3;
+        margin-bottom: 20px;
+        border-radius: 4px;
+      }
+
+      .info {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 12px;
+        margin-top: 15px;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #856404;
+      }
+
+      /* ============================================
+           ZADATAK 1: flex-wrap: nowrap (default)
+           ============================================ */
+
+      .task1 .container {
+        display: flex;
+        /* TODO: Dodaj flex-wrap: nowrap; */
+        border: 2px solid blue;
+        padding: 10px;
+        margin-bottom: 20px;
+        gap: 10px;
+        max-width: 500px;
+      }
+
+      .task1 .item {
+        width: 150px;
+        height: 100px;
+        background: #ff6b6b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+        flex-shrink: 0; /* Sprečava smanjenje */
+      }
+
+      /* ============================================
+           ZADATAK 2: flex-wrap: wrap
+           ============================================ */
+
+      .task2 .container {
+        display: flex;
+        /* TODO: Dodaj flex-wrap: wrap; */
+        border: 2px solid green;
+        padding: 10px;
+        margin-bottom: 20px;
+        gap: 10px;
+        max-width: 500px;
+      }
+
+      .task2 .item {
+        width: 150px;
+        height: 100px;
+        background: #4ecdc4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      /* ============================================
+           ZADATAK 3: flex-wrap: wrap-reverse
+           ============================================ */
+
+      .task3 .container {
+        display: flex;
+        /* TODO: Dodaj flex-wrap: wrap-reverse; */
+        border: 2px solid purple;
+        padding: 10px;
+        margin-bottom: 20px;
+        gap: 10px;
+        max-width: 500px;
+      }
+
+      .task3 .item {
+        width: 150px;
+        height: 100px;
+        background: #95e1d3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      /* ============================================
+           ZADATAK 4: Responsive Grid (wrap + flex-basis)
+           ============================================ */
+
+      .task4 .container {
+        display: flex;
+        /* TODO: Dodaj flex-wrap: wrap; */
+        border: 2px solid orange;
+        padding: 10px;
+        gap: 10px;
+        max-width: 800px;
+      }
+
+      .task4 .item {
+        /* TODO: Postavi width na 200px i flex-shrink: 0 */
+        background: #f38181;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎯 Vežba 3: Flex Wrap</h1>
+    <p>
+      Nauči kako flex items reaguju kada nisu dovoljno mesta - stisku se ili idu
+      u novi red?
+    </p>
+
+    <!-- ZADATAK 1 -->
+    <div class="exercise task1">
+      <h2>Zadatak 1: flex-wrap: nowrap (default)</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Dodaj `flex-wrap: nowrap;` u
+        `.task1 .container` (ili ostavi bez - to je DEFAULT). Kada nema mesta,
+        stavke se STISKAJU/SMANJI.
+      </div>
+
+      <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>flex-wrap: nowrap</strong> je DEFAULT vrednost. Sve stavke
+        ostaju u jednoj liniji. <br /><strong>Problem:</strong> Ako stavke ne
+        stanu, primetićeš da su stisnute (jer su se smanjile). <br /><strong
+          >Rešenje:</strong
+        >
+        Ako dodaš `flex-shrink: 0;` na stavke, vidiće se da prelaze iz
+        kontejnera!
+      </div>
+    </div>
+
+    <!-- ZADATAK 2 -->
+    <div class="exercise task2">
+      <h2>Zadatak 2: flex-wrap: wrap</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Dodaj `flex-wrap: wrap;` u
+        `.task2 .container` Stavke trebalo bi da "skoče" u novi red kada nema
+        mesta.
+      </div>
+
+      <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>flex-wrap: wrap</strong> je ključno za responsivne grid-ove!
+        <br /><strong>Očekivano:</strong> Prvi red: [1, 2, 3] | Drugi red: [4]
+        <br /><strong>Praktična primena:</strong> Card grid, product list, image
+        gallery
+      </div>
+    </div>
+
+    <!-- ZADATAK 3 -->
+    <div class="exercise task3">
+      <h2>Zadatak 3: flex-wrap: wrap-reverse</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> Dodaj `flex-wrap:
+        wrap-reverse;` u `.task3 .container` Stavke trebalo bi da se premeštaju
+        u novi red, ALI OBRNUTO (novi red ide GORE, ne dole).
+      </div>
+
+      <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>flex-wrap: wrap-reverse</strong> je retko korišćena!
+        <br /><strong>Očekivano:</strong> Stavka [4] će biti IZNAD stavki [1, 2,
+        3] <br /><strong>Napomena:</strong> Cross Axis je obrnut!
+      </div>
+    </div>
+
+    <!-- ZADATAK 4 -->
+    <div class="exercise task4">
+      <h2>Zadatak 4: Responsive Grid (Praktično)</h2>
+      <div class="instruction">
+        📝 <strong>Šta trebaš da uradi:</strong> <br />1. Dodaj `flex-wrap:
+        wrap;` u `.task4 .container` <br />2. Dodaj `width: 200px; flex-shrink:
+        0;` u `.task4 .item` <br />Kreiramo jednostavan responsive grid bez
+        Media Queries!
+      </div>
+
+      <div class="container">
+        <div class="item">Card 1</div>
+        <div class="item">Card 2</div>
+        <div class="item">Card 3</div>
+        <div class="item">Card 4</div>
+        <div class="item">Card 5</div>
+        <div class="item">Card 6</div>
+      </div>
+
+      <div class="info">
+        ℹ️ <strong>Kako radi:</strong> <br />1. Svaka kartica je 200px široka +
+        10px gap <br />2. Kada 3 kartice (630px) + 4-ta kartica (800px total)
+        prelaze 800px max-width <br />3. 4-ta kartica ide u novi red
+        <br /><strong>Rezultat:</strong> Responsive grid bez JavaScript-a ili
+        Media Queries!
+      </div>
+    </div>
+
+    <!-- TABELA ZA PREGLED -->
+    <div class="exercise">
+      <h2>📊 Quick Reference - Flex Wrap</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 15px">
+        <tr style="background: #f0f0f0">
+          <th style="border: 1px solid #ddd; padding: 10px; text-align: left">
+            Vrednost
+          </th>
+          <th style="border: 1px solid #ddd; padding: 10px; text-align: left">
+            Ponašanje
+          </th>
+          <th style="border: 1px solid #ddd; padding: 10px; text-align: left">
+            Primena
+          </th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            <code>nowrap</code> (default)
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            Sve u jednoj liniji, stiskanje ako je potrebno
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            Navbar, tabele, jednostavni redovi
+          </td>
+        </tr>
+        <tr style="background: #f9f9f9">
+          <td style="border: 1px solid #ddd; padding: 10px">
+            <code>wrap</code>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            Prelom stavki u novi red/kolonu
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            Responsive grid, card layout, masonry
+          </td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            <code>wrap-reverse</code>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            Prelom stavki, obrnuto
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px">
+            Retko (specijalni UI slučajevi)
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- CEKLIST -->
+    <div class="exercise">
+      <h2>✅ Čeklist - Šta bi trebalo da vidiš</h2>
+      <ul style="margin-left: 20px; color: #666">
+        <li>✅ Zadatak 1: Četiri stisnutog kvadrata u jednoj liniji</li>
+        <li>✅ Zadatak 2: Tri kvadrata u prvom redu, jedan u drugom</li>
+        <li>
+          ✅ Zadatak 3: Jedan kvadrat IZNAD ostalih (obrnuti redosled redova)
+        </li>
+        <li>
+          ✅ Zadatak 4: Simple responsive grid - 3-4 kartice po redu, prelom
+          automatski
+        </li>
+      </ul>
+    </div>
+
+    <!-- DODATNI SAVET -->
+    <div
+      class="exercise"
+      style="background: #e8f5e9; border-left: 4px solid #4caf50"
+    >
+      <h2>💡 Dodatni Savet - Kombinovanje</h2>
+      <p>Za pravi responsive grid, kombinuj:</p>
+      <code
+        style="
+          background: #f0f0f0;
+          padding: 10px;
+          display: block;
+          margin: 10px 0;
+          border-radius: 4px;
+        "
+      >
+        .container {<br />
+        &nbsp;&nbsp;display: flex;<br />
+        &nbsp;&nbsp;flex-wrap: wrap; /* Prelom stavki */<br />
+        &nbsp;&nbsp;gap: 10px; /* Razmak */<br />
+        }<br />
+        <br />
+        .item {<br />
+        &nbsp;&nbsp;flex: 1 1 200px; /* MIN 200px, rasteće, skrnjive */<br />
+        &nbsp;&nbsp;/* Ili: width: 200px; flex-shrink: 0; */<br />
+        }
+      </code>
+      <p style="margin-top: 10px">
+        <strong>Rezultat:</strong> Grid koji se prilagođava veličini ekrana bez
+        Media Queries! (Naučićeš `flex: 1 1 200px;` shorthand u Dan 3)
+      </p>
+    </div>
+  </body>
+</html>

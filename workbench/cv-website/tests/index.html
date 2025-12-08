@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Josip Pavlović – Junior Web Developer portfolio sajt. HTML, CSS, projekti i kontakt."
+    />
+    <title>Josip Pavlović | Web Developer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- HEADER / NAV -->
+    <header class="site-header">
+      <nav class="site-header__nav" aria-label="Glavna navigacija">
+        <a href="index.html" class="site-header__brand">
+          <span class="site-header__logo">JP</span>
+          <span class="site-header__title">Josip Pavlović · Web Developer</span>
+        </a>
+        <!-- BURGER DUGME (VIDLJIVO NA MOBILNOM) -->
+        <button
+          class="site-header__toggle"
+          type="button"
+          aria-label="Otvori navigaciju"
+          aria-expanded="false"
+        >
+          <span class="site-header__toggle-line"></span>
+        </button>
+
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="index.html" class="site-nav__link site-nav__link--active" aria-current="page"
+              >Početna</a
+            >
+          </li>
+          <li class="site-nav__item">
+            <a href="about.html" class="site-nav__link">O meni</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="skills.html" class="site-nav__link">Veštine</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="projects.html" class="site-nav__link">Projekti</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="timeline.html" class="site-nav__link">Iskustvo</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="blog.html" class="site-nav__link">Blog</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="contact.html" class="site-nav__link">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="site-main">
+      <!-- HERO (GRID: LEVO tekst, DESNO placeholder/slika) -->
+      <section class="hero">
+        <div class="hero__inner">
+          <!-- Leva kolona -->
+          <div class="hero__content">
+            <p class="hero__eyebrow">Junior Web &amp; Python Developer</p>
+
+            <h1 class="hero__title">Zdravo, ja sam Josip 👋</h1>
+
+            <p class="hero__subtitle">
+              Gradim full-stack veštine kroz realne mini-projekte u Pythonu i web development-u, uz
+              fokus na čist kod i jasnu dokumentaciju.
+            </p>
+
+            <div class="hero__actions">
+              <a href="projects.html" class="btn-primary">Pogledaj moje projekte</a>
+              <a href="assets/cv/cv_en.pdf" class="btn-secondary" download>
+                Preuzmi CV (EN, PDF)
+              </a>
+            </div>
+          </div>
+
+          <!-- Desna kolona -->
+          <div class="hero__media">
+            <div class="hero__photo-placeholder">
+              Josip Pavlović<br />
+              Portfolio u izgradnji
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">&copy; 2025 Josip Pavlović. Sva prava zadržana.</p>
+      </div>
+    </footer>
+    <!-- Mali JS za burger meni -->
+    <script>
+      const header = document.querySelector(".site-header");
+      const toggleBtn = document.querySelector(".site-header__toggle");
+
+      if (header && toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+          const isOpen = header.classList.toggle("site-header--open");
+          toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+Šta radi ovaj HTML (kratko)
+
+1. site-header – BEM blok za ceo header.
+2. site-header__nav – flex kontejner: leva strana brand, desno meni.
+3. site-header__brand – link na home sa mini logotipom “JP”.
+4. site-nav__list / __item / __link – BEM struktura za meni.
+5. site-nav__link--active + aria-current="page" – kaže i CSS-u i čitaču ekrana da je ovo trenutna stranica.
+6. hero → hero__inner – Grid kontejner.
+7. hero__content – leva kolona (tekst).
+8. hero__media – desna kolona (slika / placeholder).
+9. btn-primary, btn-secondary – dugmad (stilisanje ćemo dopuniti u CSS-u).
+10. site-footer* – BEM footer, kasnije ćemo isti iskopirati na ostale stranice.
+
+Za sada je dovoljno da ovaj HTML radi na indexu; kasnije ćemo isti header/footer preneti u about.html, skills.html, itd.
+-->

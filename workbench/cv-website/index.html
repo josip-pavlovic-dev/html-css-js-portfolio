@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Josip Pavlović – Junior Web Developer portfolio sajt. HTML, CSS, projekti i kontakt."
+    />
+    <title>Josip Pavlović | Web Developer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/day01.css" />
+
+    <!-- Scripts -->
+    <script defer src="js/scripts.js"></script>
+  </head>
+  <body>
+    <!-- HEADER / NAV -->
+    <header class="site-header">
+      <nav class="site-header-nav" aria-label="Glavna navigacija">
+        <a href="index.html" class="site-header-brand">
+          <span class="site-header-logo">JP</span>
+          <span class="site-header-title">Josip Pavlović · Web Developer</span>
+        </a>
+
+        <!-- Hamburger button (mobile only) -->
+        <button
+          class="hamburger-menu"
+          id="hamburger-toggle"
+          aria-label="Otvori meni"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <ul class="site-nav-list" id="mobile-menu">
+          <li class="site-nav-item">
+            <a
+              href="index.html"
+              class="site-nav-link site-nav-link-active"
+              aria-current="page"
+              >Početna</a
+            >
+          </li>
+          <li class="site-nav-item">
+            <a href="about.html" class="site-nav-link">O meni</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="skills.html" class="site-nav-link">Veštine</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="projects.html" class="site-nav-link">Projekti</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="timeline.html" class="site-nav-link">Iskustvo</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="blog.html" class="site-nav-link">Blog</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="contact.html" class="site-nav-link">Kontakt</a>
+          </li>
+        </ul>
+
+        <!-- Theme toggle button -->
+        <button
+          class="theme-toggle"
+          aria-label="Promeni temu"
+          aria-pressed="false"
+          title="Light/Dark tema"
+        >
+          <svg
+            class="theme-toggle-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <!-- Sun icon -->
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="site-main">
+      <!-- HERO (GRID: LEVO tekst, DESNO placeholder/slika) -->
+      <section class="hero">
+        <div class="hero-inner">
+          <!-- Leva kolona -->
+          <div class="hero-content">
+            <p class="hero-eyebrow">Junior Web & Python Developer</p>
+
+            <h1 class="hero-title">Zdravo, ja sam Josip 👋</h1>
+
+            <p class="hero-subtitle">
+              Junior Web Developer sa strašću za automatizaciju, podatke i čist
+              kod.
+            </p>
+
+            <div class="hero-actions">
+              <a href="projects.html" class="btn-primary"
+                >Pogledaj moje projekte</a
+              >
+              <a href="assets/cv/cv_en.pdf" class="btn-secondary" download>
+                Preuzmi CV (EN, PDF)
+              </a>
+            </div>
+          </div>
+
+          <!-- Desna kolona -->
+          <div class="hero-media">
+            <div class="hero-photo-placeholder">
+              Josip Pavlović<br />
+              Portfolio u izgradnji
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Utility demo sekcije -->
+      <section class="section">
+        <div class="section-header">
+          <p class="section-eyebrow">Utility demos</p>
+          <h2 class="section-title">Flex wrap + gap u praksi</h2>
+          <p class="section-subtitle">
+            Koristi DevTools da menjaš klase i vidiš raspad i ponašanje flex
+            layouta u realnom vremenu.
+          </p>
+        </div>
+
+        <div class="demo-grid">
+          <div class="demo-card lab-stack">
+            <p class="demo-card-title">Wrap + gap kontrola</p>
+            <p class="demo-card-meta">
+              .lab-flex-row .lab-flex-wrap + razni gap-ovi
+            </p>
+
+            <div class="demo-area lab-flex-row lab-flex-wrap lab-gap-md">
+              <span class="lab-pill">chip</span>
+              <span class="lab-pill">chip</span>
+              <span class="lab-pill">chip</span>
+              <span class="lab-pill">chip</span>
+              <span class="lab-pill">chip</span>
+              <span class="lab-pill">chip</span>
+            </div>
+
+            <div class="demo-area lab-flex-row lab-flex-wrap lab-gap-xl">
+              <span class="demo-chip">XL gap</span>
+              <span class="demo-chip">test</span>
+              <span class="demo-chip">wrap</span>
+              <span class="demo-chip">utility</span>
+            </div>
+          </div>
+
+          <div class="demo-card lab-stack">
+            <p class="demo-card-title">Justify + align miks</p>
+            <p class="demo-card-meta">
+              Dodaj/menjaj .lab-justify-* i .lab-align-*
+            </p>
+
+            <div
+              class="demo-area lab-flex-row lab-gap-sm lab-justify-between lab-align-start"
+            >
+              <span class="demo-box">A</span>
+              <span class="demo-box demo-box-ghost">B</span>
+              <span class="demo-box">C</span>
+            </div>
+
+            <div
+              class="demo-area lab-flex-row lab-gap-lg lab-justify-evenly lab-align-center"
+            >
+              <span class="demo-box">1</span>
+              <span class="demo-box">2</span>
+              <span class="demo-box">3</span>
+              <span class="demo-box">4</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <p class="section-eyebrow">Layout combos</p>
+          <h2 class="section-title">Stack + surface + grid</h2>
+          <p class="section-subtitle">
+            Kombinuj .lab-stack, .lab-grid-2/3 i .lab-surface da brzo složiš
+            prototip.
+          </p>
+        </div>
+
+        <div class="demo-grid">
+          <div class="demo-card">
+            <p class="demo-card-title">Stack + inline</p>
+            <p class="demo-card-meta">.lab-stack + .lab-inline</p>
+            <div class="demo-area lab-stack">
+              <div class="lab-inline">
+                <span class="demo-box">Tag</span>
+                <span class="demo-box demo-box-ghost">Tag</span>
+              </div>
+              <div class="lab-inline">
+                <span class="lab-pill">pill</span>
+                <span class="lab-pill">pill</span>
+                <span class="lab-pill">pill</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-card">
+            <p class="demo-card-title">Grid helper</p>
+            <p class="demo-card-meta">.lab-grid-3 + .lab-surface</p>
+            <div class="demo-area lab-grid-3">
+              <div class="lab-surface lab-stack">
+                <span class="demo-card-title">1</span>
+                <span class="lab-muted">grid cell</span>
+              </div>
+              <div class="lab-surface lab-stack">
+                <span class="demo-card-title">2</span>
+                <span class="lab-muted">grid cell</span>
+              </div>
+              <div class="lab-surface lab-stack">
+                <span class="demo-card-title">3</span>
+                <span class="lab-muted">grid cell</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p class="site-footer-copy">
+          &copy; 2025 Josip Pavlović. Sva prava zadržana.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

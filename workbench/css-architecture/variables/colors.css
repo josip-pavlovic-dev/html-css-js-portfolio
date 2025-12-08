@@ -1,0 +1,122 @@
+/* ================================
+   COLOR VARIABLES - PROFESSIONAL SYSTEM
+   Light Mode Default
+   ================================ */
+
+:root,
+html[data-theme="light"] {
+  /* ===== PRIMARY PALETTE ===== */
+  --color-primary: #3b82f6;
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #1e40af;
+  --color-primary-soft: rgb(59 130 246 / 16%);
+
+  /* ===== SECONDARY PALETTE ===== */
+  --color-secondary: #8b5cf6;
+  --color-secondary-light: #a78bfa;
+
+  /* ===== SEMANTIC COLORS ===== */
+  --color-success: #10b981;
+  --color-success-light: #6ee7b7;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fbbf24;
+  --color-error: #ef4444;
+  --color-error-light: #fca5a5;
+  --color-info: #06b6d4;
+  --color-info-light: #22d3ee;
+
+  /* ===== NEUTRAL/GRAYSCALE ===== */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* ===== SURFACE COLORS ===== */
+  --color-bg: #fff;
+  --color-surface: #f3f4f6;
+  --color-surface-secondary: #e5e7eb;
+  --color-surface-tertiary: #d1d5db;
+
+  /* ===== TEXT COLORS ===== */
+  --color-text: #1f2937; /* Primary text (dark) */
+  --color-text-secondary: #6b7280; /* Secondary text (gray) */
+  --color-muted: #9ca3af; /* Disabled/muted text */
+
+  /* ===== BORDER COLORS ===== */
+  --color-border: #e5e7eb;
+  --color-border-focus: #3b82f6;
+
+  /* ===== STATE COLORS ===== */
+  --color-hover: rgb(0 0 0 / 5%); /* Subtle hover overlay */
+  --color-active: rgb(59 130 246 / 10%); /* Active state */
+  --color-disabled: rgb(0 0 0 / 10%); /* Disabled state */
+}
+
+/* ================================
+   DARK THEME
+   Automatski mapira sve boje
+   ================================ */
+
+html[data-theme="dark"] {
+  /* ===== PRIMARY PALETTE - ADJUSTED FOR DARK ===== */
+  --color-primary: #38bdf8; /* Teal/Cyan - bolje vidljivo */
+  --color-primary-light: #0ea5e9; /* Brighter for hover */
+  --color-primary-dark: #0284c7; /* For active/pressed */
+  --color-primary-soft: rgb(56 189 248 / 16%);
+
+  /* ===== SECONDARY ===== */
+  --color-secondary: #a78bfa;
+  --color-secondary-light: #c4b5fd;
+
+  /* ===== SEMANTIC - ADJUSTED ===== */
+  --color-success: #10b981;
+  --color-success-light: #34d399;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fcd34d;
+  --color-error: #ef4444;
+  --color-error-light: #f87171;
+  --color-info: #06b6d4;
+  --color-info-light: #06d6ff;
+
+  /* ===== NEUTRAL - INVERTED ===== */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-50: #0f172a; /* Darkest */
+  --color-gray-100: #1e293b;
+  --color-gray-200: #334155;
+  --color-gray-300: #475569;
+  --color-gray-400: #64748b;
+  --color-gray-500: #78909c;
+  --color-gray-600: #9ca3af;
+  --color-gray-700: #b0bec5;
+  --color-gray-800: #cfd8dc;
+  --color-gray-900: #eceff1; /* Lightest */
+
+  /* ===== SURFACE - INVERTED ===== */
+  --color-bg: #020617; /* Very dark background */
+  --color-surface: #0b1120; /* Slightly lighter for cards */
+  --color-surface-secondary: #1f2937; /* Even lighter */
+  --color-surface-tertiary: #334155; /* Tertiary surface */
+
+  /* ===== TEXT - LIGHT FOR DARK BG ===== */
+  --color-text: #e5e7eb; /* Light text */
+  --color-text-secondary: #9ca3af; /* Secondary gray */
+  --color-muted: #6b7280; /* Muted text (lower contrast) */
+
+  /* ===== BORDERS ===== */
+  --color-border: #1f2937;
+  --color-border-focus: #38bdf8;
+
+  /* ===== STATE - INVERTED ===== */
+  --color-hover: rgb(255 255 255 / 8%); /* Subtle light overlay */
+  --color-active: rgb(56 189 248 / 15%); /* Active in dark */
+  --color-disabled: rgb(255 255 255 / 10%); /* Disabled in dark */
+}
