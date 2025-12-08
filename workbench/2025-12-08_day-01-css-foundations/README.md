@@ -1,17 +1,17 @@
 # 📅 Day 01 - CSS Foundations (December 8, 2025)
 
-**Branch:** `learn/day-01-css-foundations`  
+**Branch:** `learn/day-01-css-foundations`
 **Status:** 🚀 Ready to Begin
 
 ---
 
 ## 📌 Quick Navigation
 
-| File | Purpose | Duration |
-|------|---------|----------|
-| [`kickoff.md`](./kickoff.md) | Daily overview & goals | 5 min read |
-| [`tasks.md`](./tasks.md) | 5 hands-on tasks with solutions | Main work (2.25 hours) |
-| [`cheatsheet.md`](./cheatsheet.md) | Quick reference guide | Reference |
+| File                               | Purpose                         | Duration               |
+| ---------------------------------- | ------------------------------- | ---------------------- |
+| [`kickoff.md`](./kickoff.md)       | Daily overview & goals          | 5 min read             |
+| [`tasks.md`](./tasks.md)           | 5 hands-on tasks with solutions | Main work (2.25 hours) |
+| [`cheatsheet.md`](./cheatsheet.md) | Quick reference guide           | Reference              |
 
 ---
 
@@ -42,6 +42,7 @@
 ## ✨ Success Looks Like
 
 At the end of today:
+
 - ✅ `workbench/cv-website/css/day01.css` uses CSS variables
 - ✅ Daily log entry in `workbench/learning-progress/log.md`
 - ✅ Git branch has clean commit: `feat(day-01): CSS foundations practice`

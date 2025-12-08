@@ -20,13 +20,13 @@ Last one wins (unless overridden by specificity)
 
 ## Specificity Calculator
 
-| Type | Value | Example |
-|------|-------|---------|
-| Element | 1 | `p { }` |
-| Class | 10 | `.button { }` |
-| ID | 100 | `#header { }` |
-| Inline | 1000 | `style="color: red"` |
-| !important | ∞ | `color: red !important` |
+| Type       | Value | Example                 |
+| ---------- | ----- | ----------------------- |
+| Element    | 1     | `p { }`                 |
+| Class      | 10    | `.button { }`           |
+| ID         | 100   | `#header { }`           |
+| Inline     | 1000  | `style="color: red"`    |
+| !important | ∞     | `color: red !important` |
 
 **Example:** `.container p.text` = 10 + 1 + 10 = 21
 
@@ -67,6 +67,7 @@ workbench/css-architecture/variables/
 ```
 
 **Import in your CSS:**
+
 ```css
 @import url("../../../workbench/css-architecture/variables/colors.css");
 ```
@@ -95,13 +96,13 @@ Styles Panel Layout:
 
 ## Common Cascade Mistakes
 
-| Mistake | Problem | Solution |
-|---------|---------|----------|
-| Wrong order | Linked CSS after internal | Put external first |
-| Low specificity | Style doesn't apply | Increase specificity |
-| Too specific | Hard to override | Use classes, avoid IDs |
-| !important | Can't override | Avoid, use specificity |
-| Missing import | Variables undefined | Check @import path |
+| Mistake         | Problem                   | Solution               |
+| --------------- | ------------------------- | ---------------------- |
+| Wrong order     | Linked CSS after internal | Put external first     |
+| Low specificity | Style doesn't apply       | Increase specificity   |
+| Too specific    | Hard to override          | Use classes, avoid IDs |
+| !important      | Can't override            | Avoid, use specificity |
+| Missing import  | Variables undefined       | Check @import path     |
 
 ---
 
@@ -144,4 +145,3 @@ a {
 ## Today's Goal in One Sentence
 
 **Understand that CSS is applied logically through cascade + specificity, and learn to predict what style wins.**
-
