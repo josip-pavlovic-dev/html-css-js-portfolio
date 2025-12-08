@@ -1,166 +1,515 @@
-/* =========================================================
-   FAQ Accordion – Component Styles
-   ---------------------------------------------------------
-   1) Design tokens (CSS custom properties)
-   2) Reset & base typography
-   3) Global layout (container & grid)
-   4) Accordion component
-       4.1) Accordion container
-       4.2) Trigger buttons
-       4.3) Content panels
-       4.4) Focus styles (accessibility)
-   5) Theme toggle (light / dark)
-   6) Responsive adjustments (>= 700px)
-   ======================================================= */
+/* =========================
+   1) Design tokens – base
+   ========================= */
 
-/* ----------------------------------
-   1) Design tokens (custom properties)
-   ---------------------------------- */
 :root {
-  --font-main: "Inter", sans-serif;
-  --transition: 0.3s ease;
-
-  /* Light Theme Colors */
-  --bg: #fff;
-  --text: #1f1f1f;
-  --accent: #3b82f6;
-  --panel-bg: #f9f9f9;
+  --color-text: #222;
+  --color-text-muted: #4b5563;
+  --color-bg: #fff;
+  --color-bg-alt: #f7f7f7;
+  --color-border: #ddd;
+  --color-accent: #4b6bfb;
+  --font-family-base: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+    sans-serif;
+  --font-family-mono: "Fira Code", "Courier New", courier, monospace;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+  --line-height-base: 1.6;
+  --line-height-heading: 1.25;
+  --font-size-h1: 2.25rem;
+  --font-size-h2: 1.5rem;
+  --font-size-h3: 1.25rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --radius-sm: 0.25rem;
+  --border-radius: var(--radius-sm);
+  --border-width: 1px;
+  --border-style: solid;
+  --shadow-soft: 0 0.25rem 0.875rem rgb(0 0 0 / 4%);
+  --transition-easing: ease;
+  --duration-fast: 0.2s;
+  --duration-base: 0.3s;
+  --duration-slow: 0.4s;
+  --transition-fast: var(--duration-fast) var(--transition-easing);
+  --transition-base: all var(--duration-base) var(--transition-easing);
+  --focus-outline-width: 2px;
+  --focus-outline-style: dashed;
+  --focus-outline-color: var(--color-accent);
+  --focus-outline-offset: 2px;
+  --logo-size-lg: 4.5rem;
+  --logo-size-md: 3.5rem;
+  --logo-size-sm: 2rem;
 }
 
-/* ----------------------------------
-   2) Dark Theme Overrides
-   ---------------------------------- */
+/* Dark mode overrides */
 [data-theme="dark"] {
-  --bg: #121212;
-  --text: #f5f5f5;
-  --accent: #60a5fa;
-  --panel-bg: #1e1e1e;
+  --color-text: #f5f5f5;
+  --color-text-muted: #9ca3af;
+  --color-bg: #111827;
+  --color-bg-alt: #020617;
+  --color-border: #1f2937;
+  --shadow-soft: 0 0.5rem 1.5rem rgb(15 23 42 / 80%);
 }
 
-/* ----------------------------------
-   3) Reset & Base Typography
-   ---------------------------------- */
+/* =========================
+   2) Reset & base
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
 body {
   margin: 0;
-  font-family: var(--font-main);
-  background-color: var(--bg);
-  color: var(--text);
-  transition: background-color var(--transition), color var(--transition);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
-/* ----------------------------------
-   4) Global Layout
-   ---------------------------------- */
+/* =========================
+   3) Headings & Typography
+   ========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+  margin: 0 0 var(--space-md);
+}
+
+h1,
+h2 {
+  font-weight: 600;
+  transition: border-color var(--duration-base) var(--transition-easing);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+h1:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.25rem;
+}
+
+h2:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--transition-easing);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background var(--duration-fast) var(--transition-easing);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--focus-outline-width) var(--focus-outline-style)
+    var(--focus-outline-color);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* =========================
+   4) Layout: container / main
+   ========================= */
+
 .container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.site-main {
+  flex: 1 1 auto;
+}
+
+.site-header,
+.site-footer {
+  width: 100%;
+}
+
+/* =========================
+   5) HEADER
+   ========================= */
+
+.site-header {
+  background-color: var(--color-bg-alt);
+  border-bottom: solid var(--color-border);
+}
+
+.site-title {
+  font-size: var(--font-size-h1);
+  margin-bottom: var(--space-sm);
+}
+
+.header-lead {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+  max-width: 35rem;
+  font-style: italic;
+}
+
+.header-layout {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
 }
 
-.page-layout {
+.header-main {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
 }
 
-.intro {
-  flex: 1 1 100%;
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.accordion {
-  flex: 1 1 100%;
-  max-width: 800px;
-  margin: auto;
+.site-logo {
+  width: var(--logo-size-md);
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 5%;
 }
 
-/* ----------------------------------
-   5) Accordion Component
-   ---------------------------------- */
+/* Theme toggle */
+.theme-toggle {
+  --toggle-size: 2.5rem;
 
-/* 4.1 Accordion Container */
-.accordion-item {
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  margin-bottom: 1rem;
+  width: var(--toggle-size);
+  height: var(--toggle-size);
+  padding: 0;
+  border-radius: 999px;
+  border: 0.0625rem solid var(--color-border);
+  background-color: var(--color-bg-alt);
+  box-shadow: var(--shadow-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+    border-color var(--transition-fast), box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-0.0625rem);
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+  background: var(--color-border);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+  box-shadow: none;
+  background: var(--color-accent);
+}
+
+.theme-toggle-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background-color: transparent;
+}
+
+.theme-toggle-icon::before {
+  content: "☾";
+  font-size: 1.25rem;
+  color: #facc15;
+}
+
+[data-theme="dark"] .theme-toggle-icon::before {
+  content: "☀";
+  color: #fde68a;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: var(--color-border);
+}
+
+[data-theme="dark"] .theme-toggle-icon {
+  color: var(--color-accent);
+}
+
+/* =========================
+   6) FOOTER – NOVA FLEX STRUKTURA
+   ========================= */
+
+/* Glavni flex container za footer */
+.footer-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* probaj i bez wrap-a */
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Leva strana: logo + tekst */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  flex: 1 1 0;
+
+  /* justify-content: flex-start; */
+
+  /* margin-right: 2rem; */
+}
+
+.footer-logo-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.footer-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+
+  /* overflow: hidden; */
+
+  /* text-overflow: ellipsis; */
+}
+
+/* Desna strana: meta badgevi */
+.footer-meta {
+  display: flex;
+  flex: 2 1 0;
+  flex-wrap: wrap; /* probaj i sa nowrap */
+  gap: 0.5rem;
+  justify-content: flex-end;
+  min-width: 0;
+  width: 100%;
+
+  /* max-width: 70%; */
+  list-style-type: none;
+}
+
+.footer-meta li {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.1rem;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  text-align: center;
+  min-width: 6rem;
+  flex: 1 1 0;
+  white-space: nowrap;
+
+  /* padding: 0.25rem 1rem; */
+
+  /* min-width: 8rem; */
   overflow: hidden;
 }
 
-/* 4.2 Accordion Trigger Button */
+/* =========================
+   7) Responsive breakpoints
+   ========================= */
+
+/* Tablet i manje: footer prelazi u dva reda */
+@media (width <= 900px) {
+  .footer-flex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .footer-meta {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .footer-meta li {
+    /* flex: 1 1 45%; */
+    min-width: 8rem;
+    font-size: var(--font-size-xs);
+  }
+
+  .footer-left {
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
+
+  /* .footer-meta { flex-wrap: wrap; } */
+}
+
+/* Large desktop: veći badgevi */
+@media (width >= 1440px) {
+  .footer-meta li {
+    min-width: 8rem;
+    font-size: var(--font-size-sm);
+    padding: 0.25rem 1rem;
+  }
+}
+
+/* Eksperimentiši sa sledećim slojevima: */
+
+/*
+
+.footer-meta { flex-wrap: nowrap; }
+
+.footer-meta li { min-width: 5rem; }
+
+.footer-left { flex: 0 1 auto; }
+
+.footer-meta { max-width: 60%; }
+
+*/
+
+/* =========================
+   8) Accordion styles (ostavi nepromenjeno)
+   ========================= */
+
+/* ...accordion styles... */
+.accordion {
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-soft);
+}
+
+.accordion-item + .accordion-item {
+  border-top: 0.0625rem solid var(--color-border);
+}
+
+.accordion-header {
+  margin: 0;
+}
+
 .accordion-trigger {
-  width: 100%;
-  padding: 1rem;
-  text-align: left;
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
-  color: inherit;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 0.75rem 0.5rem;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  width: 100%;
+  text-align: left;
   cursor: pointer;
-  position: relative;
+  transition: background var(--duration-fast) var(--transition-easing);
 }
 
-/* Expand/collapse icon */
-.accordion-trigger::after {
-  content: "+";
-  position: absolute;
-  right: 1rem;
-  transition: transform var(--transition);
+.accordion-trigger-label {
+  flex: 1;
+  font-weight: 500;
+  line-height: var(--line-height-heading);
 }
 
-.accordion-item.is-open .accordion-trigger::after {
-  content: "–";
+.accordion-trigger-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 4.3 Accordion Panel Content */
+.icon-arrow {
+  width: 1rem;
+  height: 1rem;
+  transform-origin: center;
+  transform: rotate(180deg);
+  transition: transform var(--transition-fast);
+}
+
+.icon-arrow-line {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.accordion-trigger[aria-expanded="true"] .icon-arrow {
+  transform: rotate(90deg);
+}
+
+.accordion-trigger:hover {
+  background-color: var(--color-bg-alt);
+}
+
+.accordion-trigger:focus-visible {
+  outline: var(--focus-outline-width) solid var(--focus-outline-color);
+  outline-offset: var(--focus-outline-offset);
+}
+
 .accordion-panel {
-  max-height: 0;
+  padding: 1.75rem;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  transition: max-height var(--duration-base) var(--transition-easing);
   overflow: hidden;
-  padding: 0 1rem;
-  background-color: var(--panel-bg);
-  transition: max-height var(--transition), padding-block var(--transition);
+}
+
+.accordion-panel p {
+  margin: 0;
 }
 
 .accordion-item.is-open .accordion-panel {
-  max-height: 200px;
-  padding-block: 1rem;
-}
-
-/* 4.4 Accessibility Focus */
-.accordion-trigger:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-/* ----------------------------------
-   6) Theme Toggle Button
-   ---------------------------------- */
-.theme-toggle {
-  background: none;
-  border: 2px solid var(--accent);
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  color: var(--accent);
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-/* ----------------------------------
-   7) Responsive Adjustments
-   ---------------------------------- */
-@media (width >= 700px) {
-  .page-layout {
-    flex-wrap: nowrap;
-  }
-
-  .intro {
-    flex: 1;
-  }
-
-  .accordion {
-    flex: 2;
-  }
+  padding: 1rem;
+  max-height: 20rem;
 }

@@ -1,178 +1,191 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
   <head>
-    <!-- ✅ Osnovna podešavanja dokumenta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ Accordion</title>
-
-    <!-- 🎨 CSS fajl i font -->
-    <link rel="stylesheet" href="./styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
+    <meta
+      name="description"
+      content="FAQ accordion component — part of the HTML/CSS/JS mini projects portfolio."
     />
+    <link rel="icon" type="image/png" href="../assets/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>FAQ Accordion | HTML/CSS/JS Mini Projects</title>
   </head>
   <body>
-    <!-- =======================
-         HEADER: Naslov i toggle
-         ======================= -->
-    <header>
+    <!-- HEADER = stub layout-a -->
+    <header class="site-header">
       <div class="container">
-        <h1>Frequently Asked Questions</h1>
-        <button
-          id="theme-toggle"
-          class="theme-toggle"
-          aria-label="Toggle theme"
-        >
-          🌙 Dark Mode
-        </button>
+        <!-- header-layout = glavni flex red: levo sadržaj, desno toggle -->
+        <div class="header-layout">
+          <!-- header-main = tekstualni deo header-a -->
+          <div class="header-main">
+            <!-- header-brand = logo + naslov -->
+            <div class="header-brand">
+              <img
+                src="../assets/logo.png"
+                alt="Josip Pavlović — Python & Full-Stack Web Developer"
+                class="site-logo"
+              />
+              <h1 class="site-title">FAQ Accordion Component</h1>
+            </div>
+
+            <!-- header-lead = kratki opis projekta -->
+            <p class="header-lead">
+              Small, accessible accordion built with semantic HTML as part of
+              the HTML/CSS/JS mini projects portfolio.
+            </p>
+          </div>
+
+          <!-- Theme toggle – sada je deo flex layout-a, nema više absolute -->
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to dark theme"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     </header>
 
-    <!-- ========================
-         MAIN: Sadržaj stranice
-         ======================== -->
-    <main class="page-layout">
-      <!-- ✍️ Uvodni tekst -->
-      <section class="intro">
-        <p>
-          This accessible FAQ accordion uses semantic HTML, responsive CSS, and
-          clean JS. It supports keyboard navigation, screen readers, and
-          light/dark mode.
-        </p>
-      </section>
+    <!-- MAIN = stub layout-a -->
+    <main class="site-main">
+      <div class="container">
+        <section class="accordion" aria-label="Frequently Asked Questions">
+          <!-- ITEM 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="accordion-panel-1"
+                id="accordion-header-1"
+              >
+                <span class="accordion-trigger-label">
+                  What is this project about?
+                </span>
+                <span class="accordion-trigger-icon" aria-hidden="true">
+                  <svg class="icon-arrow" viewBox="0 0 16 16" focusable="false">
+                    <!-- Osnovni oblik: strelica udesno, rotacijom pravimo <- i ↓ -->
+                    <polyline class="icon-arrow-line" points="5 3 11 8 5 13" />
+                  </svg>
+                </span>
+              </button>
+            </h2>
 
-      <!-- 📚 Sekcija: Accordion -->
-      <section class="accordion" aria-label="FAQ Section">
-        <!-- 🔽 Accordion Item 0 (custom) -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="accordion-header-0">
-            <button
-              class="accordion-trigger"
-              type="button"
-              aria-expanded="false"
-              aria-controls="accordion-panel-0"
-              id="accordion-button-0"
+            <div
+              id="accordion-panel-1"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-1"
+              hidden
             >
-              <span class="accordion-title">What is this project about?</span>
-            </button>
-          </h2>
+              <p>
+                This is a small FAQ accordion component built with semantic
+                HTML, modern CSS, and vanilla JavaScript. It focuses on
+                accessibility and clean structure, making it a good practice
+                project for frontend fundamentals.
+              </p>
+            </div>
+          </div>
 
-          <div
-            id="accordion-panel-0"
-            class="accordion-panel"
-            role="region"
-            aria-labelledby="accordion-header-0"
-            hidden
-          >
-            <p>
-              This is a learning project that focuses on building an accessible
-              FAQ accordion using only HTML first, then adding CSS and
-              JavaScript.
-            </p>
-          </div>
-        </div>
-        <!-- 🔽 Accordion Item 1 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="accordion-header-1">
-            <button
-              class="accordion-trigger"
-              aria-expanded="false"
-              aria-controls="accordion-panel-1"
-              id="accordion-button-1"
-            >
-              What is semantic HTML?
-            </button>
-          </h2>
-          <div
-            id="accordion-panel-1"
-            class="accordion-panel"
-            role="region"
-            aria-labelledby="accordion-header-1"
-          >
-            <p>
-              Semantic HTML uses elements that clearly describe their meaning,
-              like &lt;section&gt;, &lt;article&gt;, and &lt;header&gt;.
-            </p>
-          </div>
-        </div>
+          <!-- ITEM 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="accordion-panel-2"
+                id="accordion-header-2"
+              >
+                <span class="accordion-trigger-label">
+                  How does the accordion work?
+                </span>
+                <span class="accordion-trigger-icon" aria-hidden="true">
+                  <svg class="icon-arrow" viewBox="0 0 16 16" focusable="false">
+                    <polyline class="icon-arrow-line" points="5 3 11 8 5 13" />
+                  </svg>
+                </span>
+              </button>
+            </h2>
 
-        <!-- 🔽 Accordion Item 2 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="accordion-header-2">
-            <button
-              class="accordion-trigger"
-              aria-expanded="false"
-              aria-controls="accordion-panel-2"
-              id="accordion-button-2"
+            <div
+              id="accordion-panel-2"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-2"
+              hidden
             >
-              How does this accordion work?
-            </button>
-          </h2>
-          <div
-            id="accordion-panel-2"
-            class="accordion-panel"
-            role="region"
-            aria-labelledby="accordion-header-2"
-            hidden
-          >
-            <p>
-              JavaScript toggles the aria-expanded attribute and visibility of
-              panels using classes and ARIA logic.
-            </p>
+              <p>
+                Each question is a button with proper ARIA attributes. Clicking
+                toggles <code>aria-expanded</code> and a CSS class on the item
+                to show or hide the corresponding answer panel, while keeping
+                the markup accessible for keyboard and screen reader users.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <!-- 🔽 Accordion Item 3 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="accordion-header-3">
-            <button
-              class="accordion-trigger"
-              aria-expanded="false"
-              aria-controls="accordion-panel-3"
-              id="accordion-button-3"
+          <!-- ITEM 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="accordion-panel-3"
+                id="accordion-header-3"
+              >
+                <span class="accordion-trigger-label">
+                  Why focus on semantics and accessibility?
+                </span>
+                <span class="accordion-trigger-icon" aria-hidden="true">
+                  <svg class="icon-arrow" viewBox="0 0 16 16" focusable="false">
+                    <polyline class="icon-arrow-line" points="5 3 11 8 5 13" />
+                  </svg>
+                </span>
+              </button>
+            </h2>
+
+            <div
+              id="accordion-panel-3"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-3"
+              hidden
             >
-              Is it accessible with keyboard?
-            </button>
-          </h2>
-          <div
-            id="accordion-panel-3"
-            class="accordion-panel"
-            role="region"
-            aria-labelledby="accordion-header-3"
-            hidden
-          >
-            <p>
-              Yes! You can navigate via Tab and toggle sections with Enter or
-              Space.
-            </p>
+              <p>
+                Proper semantics and ARIA attributes ensure that keyboard users
+                and screen reader users can understand and operate the
+                accordion, not just mouse users.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
-    <!-- 📜 JavaScript za accordion i dark mode -->
-    <script src="./script.js" defer></script>
+    <!-- FOOTER = stub layout-a -->
+
+    <footer class="site-footer">
+      <div class="container footer-flex">
+        <div class="footer-left">
+          <img src="../assets/favicon.png" alt="" class="footer-logo-icon" />
+          <span class="footer-text">
+            Built as part of the <strong>html-css-js-portfolio</strong> project.
+          </span>
+        </div>
+        <ul class="footer-meta" aria-label="Accordion exercise highlights">
+          <li>Semantic HTML</li>
+          <li>ARIA-friendly accordion</li>
+          <li>Keyboard & screen reader support</li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
-
-<!--
-  ZADATAK: Za svaki ARIA atribut napisati u komentaru (na srpskom) šta radi taj atribut.
-
-  1. aria-label="Frequently Asked Questions" – Ovaj atribut daje pristupačan naziv
-     sekciji akordeona i pomaže korisnicima čitača ekrana da razumeju da se radi
-     o listi često postavljanih pitanja.
-
-  2. aria-expanded="true" / aria-expanded="false" – Ovaj atribut označava da li je
-     određeni panel trenutno otvoren (true) ili zatvoren (false).
-
-  3. aria-controls="accordion-panel-X" – Ovaj atribut povezuje dugme sa panelom
-     koji kontroliše, tj. govori čitaču ekrana koji deo sadržaja će biti
-     prikazan ili sakriven kada se dugme aktivira.
-
-  4. aria-labelledby="accordion-header-X" – Ovaj atribut kaže da je panel
-     "označen" naslovom sa datim ID-jem, što omogućava čitačima ekrana da
-     pravilno pročitaju naslov pre samog sadržaja panela.
--->
