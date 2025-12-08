@@ -41,7 +41,7 @@ Collection of small frontend projects built with HTML, CSS and JavaScript. | _Ko
 ## 👤 Author | _Autor_
 
 [![GitHub - josip-pavlovic-dev](https://img.shields.io/badge/GitHub-josip--pavlovic--dev-black?logo=github)](https://github.com/josip-pavlovic-dev)
-[![Learning Path - Full-Stack Web Dev](https://img.shields.io/badge/Learning%20Path-Full--Stack%20Web%20Dev-blue)](#)
+![Learning Path - Full-Stack Web Dev](https://img.shields.io/badge/Learning%20Path-Full--Stack%20Web%20Dev-blue)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Josip%20Pavlovi%C4%87-blue?logo=linkedin)](https://www.linkedin.com/in/josip-p-151951338/)
 
 Junior full-stack / frontend developer in transition from construction engineering. | _Junior full-stack / frontend developer u tranziciji iz građevinske industrije._
