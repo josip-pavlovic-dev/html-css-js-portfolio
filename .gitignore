@@ -152,3 +152,8 @@ workbench/learning-progress/
 workbench/legacy/
 workbench/scratch/
 
+# Scrimba Full Stack Web Developer course files (not needed in repo)
+workbench/scrimba_full_stack/
+
+# Daily templates (not needed in repo)
+workbench/templates/
