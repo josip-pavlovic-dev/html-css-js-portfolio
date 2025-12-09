@@ -10,7 +10,7 @@ status: production-ready
 
 ## 🎯 Šta su Custom Properties?
 
-CSS Custom Properties (CSS Variables) su **динамичке vrednosti** koje se mogu koristiti svuda u CSS-u.
+CSS Custom Properties (CSS Variables) su **dinamičke vrednosti** koje se mogu koristiti svuda u CSS-u.
 
 ```css
 /* Deklaracija */

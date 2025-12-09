@@ -106,7 +106,7 @@ nav a:hover {
    - Find rules being overridden (strikethrough)
    - Check specificity column
 
-### Screenshot Time!
+### Screenshot Time
 
 - Take screenshot of DevTools showing:
   - Element selected

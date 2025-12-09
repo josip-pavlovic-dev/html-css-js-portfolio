@@ -1,0 +1,91 @@
+/* ========================================
+   CSS ARCHITECTURE IMPORTS (varijable PRVO)
+   ======================================== */
+@import url("../../css-architecture/variables/colors.css");
+@import url("../../css-architecture/variables/typography.css");
+@import url("../../css-architecture/variables/spacing.css");
+@import url("../../css-architecture/variables/layout.css");
+@import url("../../css-architecture/variables/navigation.css");
+@import url("../../css-architecture/variables/animations.css");
+@import url("../../css-architecture/variables/borders.css");
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: var(--line-height-normal, 1.6);
+  transition: background var(--duration-base, 0.3s) var(--ease-in-out, ease),
+    color var(--duration-base, 0.3s) var(--ease-in-out, ease);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-base, 0.2s) var(--ease-in-out, ease);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* ========================================
+   LAYOUT HELPERS
+   ======================================== */
+main {
+  width: 100%;
+  max-width: var(--content-wide, 65rem);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+}
+
+.section {
+  padding: var(--space-xl) var(--space-lg);
+}
+
+/* Dodaj komponente ispod – koristi varijable umesto hardkodovanih boja/spacinga */
+
+/* 1) Horizontalno poravnanje linkova u navigaciji (flex row) */
+.site-nav-list {
+  display: flex;
+  justify-content: space-between; /* rasporedi linkove po širini */
+  align-items: center; /* vertikalno centriraj tekst/ikone */
+  gap: var(--space-sm);
+}
+
+/* 2) Hero dugmad u centru (flex row koji se lomi) */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centriraj dugmad po X osi */
+  align-items: center; /* centriraj dugmad po Y osi */
+  gap: var(--space-sm);
+}
+
+/* 3) Kartica sa tekstom centriranim i po X i po Y (flex column) */
+.card-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centriraj sadržaj vertikalno */
+  align-items: center; /* centriraj sadržaj horizontalno */
+  min-height: 200px;
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+}
