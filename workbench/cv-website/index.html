@@ -135,116 +135,84 @@
               Josip Pavlović<br />
               Portfolio u izgradnji
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Utility demo sekcije -->
-      <section class="section">
-        <div class="section-header">
-          <p class="section-eyebrow">Utility demos</p>
-          <h2 class="section-title">Flex wrap + gap u praksi</h2>
-          <p class="section-subtitle">
-            Koristi DevTools da menjaš klase i vidiš raspad i ponašanje flex
-            layouta u realnom vremenu.
-          </p>
-        </div>
-
-        <div class="demo-grid">
-          <div class="demo-card lab-stack">
-            <p class="demo-card-title">Wrap + gap kontrola</p>
-            <p class="demo-card-meta">
-              .lab-flex-row .lab-flex-wrap + razni gap-ovi
-            </p>
-
-            <div class="demo-area lab-flex-row lab-flex-wrap lab-gap-md">
-              <span class="lab-pill">chip</span>
-              <span class="lab-pill">chip</span>
-              <span class="lab-pill">chip</span>
-              <span class="lab-pill">chip</span>
-              <span class="lab-pill">chip</span>
-              <span class="lab-pill">chip</span>
+            <div class="floating-card card-1">
+              <span>▶</span>
+              <code>npm run build</code>
             </div>
-
-            <div class="demo-area lab-flex-row lab-flex-wrap lab-gap-xl">
-              <span class="demo-chip">XL gap</span>
-              <span class="demo-chip">test</span>
-              <span class="demo-chip">wrap</span>
-              <span class="demo-chip">utility</span>
-            </div>
-          </div>
-
-          <div class="demo-card lab-stack">
-            <p class="demo-card-title">Justify + align miks</p>
-            <p class="demo-card-meta">
-              Dodaj/menjaj .lab-justify-* i .lab-align-*
-            </p>
-
-            <div
-              class="demo-area lab-flex-row lab-gap-sm lab-justify-between lab-align-start"
-            >
-              <span class="demo-box">A</span>
-              <span class="demo-box demo-box-ghost">B</span>
-              <span class="demo-box">C</span>
-            </div>
-
-            <div
-              class="demo-area lab-flex-row lab-gap-lg lab-justify-evenly lab-align-center"
-            >
-              <span class="demo-box">1</span>
-              <span class="demo-box">2</span>
-              <span class="demo-box">3</span>
-              <span class="demo-box">4</span>
+            <div class="floating-card card-2">
+              <span>⚡</span>
+              <code>fetch('/api/data')</code>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Featured projects -->
       <section class="section">
         <div class="section-header">
-          <p class="section-eyebrow">Layout combos</p>
-          <h2 class="section-title">Stack + surface + grid</h2>
+          <p class="section-eyebrow">Izdvojeni projekti</p>
+          <h2 class="section-title">Praktični rad i primeri</h2>
           <p class="section-subtitle">
-            Kombinuj .lab-stack, .lab-grid-2/3 i .lab-surface da brzo složiš
-            prototip.
+            Od responzivnih sajtova do automatizacije — projekti fokusirani na
+            čitljiv kod, pristupačnost i merenje performansi.
           </p>
         </div>
 
-        <div class="demo-grid">
-          <div class="demo-card">
-            <p class="demo-card-title">Stack + inline</p>
-            <p class="demo-card-meta">.lab-stack + .lab-inline</p>
-            <div class="demo-area lab-stack">
-              <div class="lab-inline">
-                <span class="demo-box">Tag</span>
-                <span class="demo-box demo-box-ghost">Tag</span>
-              </div>
-              <div class="lab-inline">
-                <span class="lab-pill">pill</span>
-                <span class="lab-pill">pill</span>
-                <span class="lab-pill">pill</span>
-              </div>
+        <div class="cards-grid">
+          <article class="project-card">
+            <span class="project-meta">Featured · Web</span>
+            <h3 class="project-title">CV Portfolio</h3>
+            <p class="project-desc">
+              Personalizovan CV sa sticky navigacijom, temama i grid layoutom,
+              građen modularnom CSS arhitekturom.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS Architecture</span>
+              <span class="project-tag">Dark mode</span>
             </div>
-          </div>
+            <div class="project-actions">
+              <a class="btn-secondary" href="projects.html">Detalji</a>
+              <a class="project-link" href="projects.html">Live →</a>
+            </div>
+          </article>
 
-          <div class="demo-card">
-            <p class="demo-card-title">Grid helper</p>
-            <p class="demo-card-meta">.lab-grid-3 + .lab-surface</p>
-            <div class="demo-area lab-grid-3">
-              <div class="lab-surface lab-stack">
-                <span class="demo-card-title">1</span>
-                <span class="lab-muted">grid cell</span>
-              </div>
-              <div class="lab-surface lab-stack">
-                <span class="demo-card-title">2</span>
-                <span class="lab-muted">grid cell</span>
-              </div>
-              <div class="lab-surface lab-stack">
-                <span class="demo-card-title">3</span>
-                <span class="lab-muted">grid cell</span>
-              </div>
+          <article class="project-card">
+            <span class="project-meta">Featured · Frontend</span>
+            <h3 class="project-title">Weather App</h3>
+            <p class="project-desc">
+              Weather dashboard sa API pozivima, geolokacijom i čistim state
+              menadžmentom u vanilla JS-u.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
             </div>
-          </div>
+            <div class="project-actions">
+              <a class="btn-secondary" href="projects.html">Detalji</a>
+              <a class="project-link" href="weather-app/index.html">Live →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-meta">Featured · Automation</span>
+            <h3 class="project-title">Todo & Automation Lab</h3>
+            <p class="project-desc">
+              Spoj task menadžmenta i malih automatizacija — fokus na UX,
+              pristupačnost i ponovnu upotrebu komponenti.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">ARIA</span>
+              <span class="project-tag">Accessibility</span>
+              <span class="project-tag">JS</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn-secondary" href="projects.html">Detalji</a>
+              <a class="project-link" href="todo-app/index.html">Live →</a>
+            </div>
+          </article>
         </div>
       </section>
     </main>

@@ -239,13 +239,13 @@ Premeštaj završene projekte u `projects-archive/` da drži workspace clean.
 
 ## 🔄 Maintenance
 
-### Čuvaj Čistim:
+### Čuvaj Čistim
 
 - Obrisi `.css.bak` i `*.old` fajlove
 - Organizuj `projects-archive/` po godinama
 - Review `teoria/` svakog meseca - dodaj nove learnings
 
-### Backup:
+### Backup
 
 - Git commit svakodnevno
 - Push na GitHub za cloud backup
