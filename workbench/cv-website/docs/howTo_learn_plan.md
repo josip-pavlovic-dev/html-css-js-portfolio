@@ -150,14 +150,14 @@ Razviti **profesionalni GitHub portfolio** sa mini projektima koji pokazuju:
 
 ### **🚧 U Toku**
 
-2. 🚧 **CV Website** (Responsive navbar, hamburger menu, theme toggle)
+1. 🚧 **CV Website** (Responsive navbar, hamburger menu, theme toggle)
 
 ### **📅 Planirani (Sledećih 4 Nedelje)**
 
-3. **Calculator** (Grid layout, JavaScript logic, keyboard support) - Dan 4-10
-4. **Todo App** (localStorage, CRUD operations, drag-and-drop) - Dan 11-17
-5. **Weather App** (API integration, async/await, error handling) - Dan 18-24
-6. **Landing Page** (Advanced CSS, scroll animations, forms) - Dan 25-30
+1. **Calculator** (Grid layout, JavaScript logic, keyboard support) - Dan 4-10
+2. **Todo App** (localStorage, CRUD operations, drag-and-drop) - Dan 11-17
+3. **Weather App** (API integration, async/await, error handling) - Dan 18-24
+4. **Landing Page** (Advanced CSS, scroll animations, forms) - Dan 25-30
 
 ---
 

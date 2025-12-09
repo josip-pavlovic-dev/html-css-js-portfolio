@@ -21,17 +21,17 @@ By end of day, you will:
 
 ### 1. **Refresh Basics** (30 min)
 
-- Open: `workbench/teoria/css/01-specificity-cascade.md`
+- Open: [`workbench/teoria/css/01-specificity-cascade.md`](../teoria/css/01-specificity-cascade.md)
 - Read: Full cheatsheet on cascade and specificity
 - Take notes on 3 key learnings
 
 ### 2. **Hands-On Practice** (90 min)
 
-- Open: `workbench/cv-website/` in VS Code
+- Open: [`workbench/cv-website/`](../cv-website/) in VS Code
 - View: Live preview in browser (using Live Server or similar)
-- **Task 1:** Apply CSS to `index.html` using cascade rules
+- **Task 1:** Apply CSS to [`index.html`](../cv-website/index.html) using cascade rules
 - **Task 2:** Override styles using specificity (add class selectors)
-- **Task 3:** Use CSS variables from `css-architecture/variables/`
+- **Task 3:** Use CSS variables from [`css-architecture/variables/`](../css-architecture/variables/)
 
 ### 3. **Test & Debug** (60 min)
 
@@ -136,4 +136,4 @@ Professional Workflow
 
 **Ready? Let's go!** 💪
 
-Next: Open `workbench/teoria/css/01-specificity-cascade.md` and take notes.
+Next: Open [`workbench/teoria/css/01-specificity-cascade.md`](../teoria/css/01-specificity-cascade.md) and take notes.

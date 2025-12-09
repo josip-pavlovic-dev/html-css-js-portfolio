@@ -217,7 +217,7 @@ workbench/
 
 ---
 
-## 📈 By Month 6, You Will Have:
+## 📈 By Month 6, You Will Have
 
 ✅ **Knowledge Base:**
 
