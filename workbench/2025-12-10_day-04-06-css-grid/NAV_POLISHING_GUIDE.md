@@ -339,7 +339,7 @@ Ako ratio < 4.5:1  → Loše vidljivo za ljude sa slabim vidom
 
 ### Kako Proveriti Kontrast?
 
-Koristi **WebAIM Contrast Checker**: https://webaim.org/resources/contrastchecker/
+Koristi **WebAIM Contrast Checker**: <https://webaim.org/resources/contrastchecker/>
 
 ```
 Ulaz: #1a1a1a (tekst) + #ffffff (pozadina)

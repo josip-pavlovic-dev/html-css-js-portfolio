@@ -124,6 +124,6 @@ Zadaj si sebe svaki dan:
 
 ## Alati za ovu vežbu
 
-- **CSS Grid Generator**: https://cssgrid-generator.netlify.app/ (vizuelno)
+- **CSS Grid Generator**: [https://cssgrid-generator.netlify.app/ (vizuelno)](https://cssgrid-generator.netlify.app/)
 - **Browser DevTools**: Inspect `.hero-inner` → Layout tab (pokazuje grid)
 - **Pen & Paper**: Skicira layout pre nego što kodiš

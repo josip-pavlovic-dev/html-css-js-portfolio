@@ -58,6 +58,7 @@
 
 - [ ] Otvori `index.css`
 - [ ] Zameni Hero sa:
+
   ```css
   .hero-inner {
     grid-template-columns: 1fr;
@@ -129,7 +130,7 @@
 
 ---
 
-## 🚨 Ako Zapneš...
+## 🚨 Ako Zapneš
 
 **"Ne razumem šta je `1fr`"**
 → Čitaj cheatsheet sekciju 3. `1fr` = 1 deo dostupnog prostora. Ako `1fr 1fr` → svaka kolona dobija pola.
