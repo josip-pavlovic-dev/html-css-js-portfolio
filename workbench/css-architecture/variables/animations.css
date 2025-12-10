@@ -54,16 +54,16 @@ html[data-theme="light"] {
   --focus-shadow: 0 0 0 3px rgb(59 130 246 / 20%);
 
   /* ===== OPACITY ===== */
-  --opacity-0: 0;
-  --opacity-10: 0.1;
-  --opacity-20: 0.2;
-  --opacity-50: 0.5;
-  --opacity-75: 0.75;
-  --opacity-90: 0.9;
-  --opacity-100: 1;
+  --opacity-0: 0; /* koristiti se za potpuno nevidljive elemente */
+  --opacity-10: 0.1; /* koristiti se za vrlo nevidljive elemente */
+  --opacity-20: 0.2; /* koristiti se za lagano nevidljive elemente */
+  --opacity-50: 0.5; /* koristiti se za poluprozirne elemente */
+  --opacity-75: 0.75; /* koristiti se za gotovo nevidljive elemente */
+  --opacity-90: 0.9; /* koristiti se za gotovo potpuno vidljive elemente */
+  --opacity-100: 1; /* koristiti se za potpuno vidljive elemente */
 
   /* ===== BACKDROP EFFECTS ===== */
-  --backdrop-blur: blur(16px);
-  --backdrop-blur-sm: blur(8px);
-  --backdrop-blur-lg: blur(24px);
+  --backdrop-blur: blur(16px); /* koristiti se za zamućenje pozadine */
+  --backdrop-blur-sm: blur(8px); /* koristiti se za lagano zamućenje pozadine */
+  --backdrop-blur-lg: blur(24px); /* koristiti se za jako zamućenje pozadine */
 }
