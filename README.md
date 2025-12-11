@@ -13,12 +13,18 @@ Collection of small frontend projects built with HTML, CSS and JavaScript. | _Ko
 
 ## 📁 Repository structure | _Struktura repozitorijuma_
 
+**Main branch only includes finished and production-ready projects.**
+_`main` grana sadrži samo završene i stabilne projekte._
+
 - `accordion/` – simple FAQ accordion component. | _Jednostavna FAQ accordion komponenta._
 - `calculator/` – basic calculator app. | _Osnovna kalkulator aplikacija._
 - `todo-app/` – to-do list with local storage. | _To-do lista sa čuvanjem podataka u local storage-u._
 - `weather-app/` – weather app using public API. | _Aplikacija za vremensku prognozu uz korišćenje javnog API-ja._
 - `landing-page/` – responsive landing page. | _Responzivna landing stranica._
-- `assets/` – shared images and assets for documentation. | _Zajedničke slike i ostali resursi za dokumentaciju._
+- `assets/` – shared images and resources for documentation. | _Zajedničke slike i ostali resursi za dokumentaciju._
+
+**Workbench branch (`workbench`) is excluded in this view as it includes daily experiments and development.**
+_Grana `workbench` je isključena iz ovog pregleda jer sadrži svakodnevne eksperimente i razvoj._
 
 ---
 
