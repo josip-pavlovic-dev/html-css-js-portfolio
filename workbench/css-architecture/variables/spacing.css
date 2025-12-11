@@ -1,0 +1,34 @@
+/* ================================
+   SPACING VARIABLES
+   Unified 8px-based spacing scale
+   ================================ */
+
+:root,
+html[data-theme="light"],
+html[data-theme="dark"] {
+  /* ===== SPACING SCALE (8px base system) ===== */
+  --space-2xs: 0.25rem; /* 4px */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 0.75rem; /* 12px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
+  --space-4xl: 6rem; /* 96px */
+
+  /* ===== COMMON PADDING SHORTCUTS ===== */
+  --padding-compact: var(--space-sm); /* For tight spaces */
+  --padding-normal: var(--space-md); /* Default padding */
+  --padding-comfortable: var(--space-lg); /* More breathing room */
+
+  /* ===== COMMON MARGIN SHORTCUTS ===== */
+  --margin-tight: var(--space-sm);
+  --margin-normal: var(--space-md);
+  --margin-loose: var(--space-lg);
+
+  /* ===== GAPS (for flex/grid) ===== */
+  --gap-tight: var(--space-xs);
+  --gap-normal: var(--space-md);
+  --gap-loose: var(--space-lg);
+}

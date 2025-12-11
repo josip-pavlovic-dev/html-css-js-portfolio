@@ -1,0 +1,69 @@
+/* ================================
+   ANIMATION VARIABLES
+   Duration, easing, transitions, shadows
+   ================================ */
+
+:root,
+html[data-theme="light"],
+html[data-theme="dark"] {
+  /* ===== DURATION SCALE ===== */
+  --duration-fast: 0.1s;
+  --duration-normal: 0.2s;
+  --duration-base: 0.3s;
+  --duration-slow: 0.5s;
+  --duration-slower: 0.8s;
+
+  /* ===== EASING FUNCTIONS ===== */
+  --ease-linear: linear;
+  --ease-in: ease-in;
+  --ease-out: ease-out;
+  --ease-in-out: ease-in-out;
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ===== TRANSITION SHORTCUTS ===== */
+  --transition-base: all var(--duration-base) var(--ease-in-out);
+  --transition-fast: all var(--duration-fast) var(--ease-in-out);
+  --transition-colors: background-color var(--duration-base) var(--ease-in-out),
+    border-color var(--duration-base) var(--ease-in-out),
+    color var(--duration-base) var(--ease-in-out);
+  --transition-transform: transform var(--duration-base) var(--ease-in-out);
+
+  /* ===== SHADOWS - LIGHT MODE ===== */
+  --shadow-none: none;
+  --shadow-sm: 0 0.125rem 0.25rem rgb(0 0 0 / 5%);
+  --shadow-base: 0 0.25rem 0.5rem rgb(0 0 0 / 10%);
+  --shadow-md: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+  --shadow-lg: 0 1rem 2rem rgb(0 0 0 / 20%);
+  --shadow-xl: 0 1.5rem 3rem rgb(0 0 0 / 25%);
+  --shadow-soft: 0 1.125rem 2.8125rem rgb(0 0 0 / 8%);
+}
+
+/* DARK MODE SHADOW OVERRIDE */
+html[data-theme="dark"] {
+  --shadow-soft: 0 1.125rem 2.8125rem rgb(15 23 42 / 65%);
+}
+
+/* ===== ACCESSIBILITY ===== */
+:root,
+html[data-theme="light"] {
+  --focus-outline-width: 0.125rem;
+  --focus-outline-color: var(--color-primary);
+  --focus-outline-offset: 0.15rem;
+  --focus-outline: var(--focus-outline-width) solid var(--focus-outline-color);
+  --focus-shadow: 0 0 0 3px rgb(59 130 246 / 20%);
+
+  /* ===== OPACITY ===== */
+  --opacity-0: 0; /* koristiti se za potpuno nevidljive elemente */
+  --opacity-10: 0.1; /* koristiti se za vrlo nevidljive elemente */
+  --opacity-20: 0.2; /* koristiti se za lagano nevidljive elemente */
+  --opacity-50: 0.5; /* koristiti se za poluprozirne elemente */
+  --opacity-75: 0.75; /* koristiti se za gotovo nevidljive elemente */
+  --opacity-90: 0.9; /* koristiti se za gotovo potpuno vidljive elemente */
+  --opacity-100: 1; /* koristiti se za potpuno vidljive elemente */
+
+  /* ===== BACKDROP EFFECTS ===== */
+  --backdrop-blur: blur(16px); /* koristiti se za zamućenje pozadine */
+  --backdrop-blur-sm: blur(8px); /* koristiti se za lagano zamućenje pozadine */
+  --backdrop-blur-lg: blur(24px); /* koristiti se za jako zamućenje pozadine */
+}

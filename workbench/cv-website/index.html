@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Josip Pavlović – Junior Web Developer portfolio sajt. HTML, CSS, projekti i kontakt."
+    />
+    <title>Josip Pavlović | Web Developer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- HEADER / NAV -->
+    <header class="site-header">
+      <nav class="site-header-nav" aria-label="Glavna navigacija">
+        <a href="index.html" class="site-header-brand">
+          <span class="site-header-logo">JP</span>
+          <span class="site-header-title">Josip Pavlović · Web Developer</span>
+        </a>
+
+        <!-- Hamburger button (mobile only) -->
+        <button
+          class="hamburger-menu"
+          id="hamburger-toggle"
+          aria-label="Otvori meni"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <ul class="site-nav-list" id="mobile-menu">
+          <li class="site-nav-item">
+            <a
+              href="index.html"
+              class="site-nav-link site-nav-link-active"
+              aria-current="page"
+              >Početna</a
+            >
+          </li>
+          <li class="site-nav-item">
+            <a href="about.html" class="site-nav-link">O meni</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="skills.html" class="site-nav-link">Veštine</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="projects.html" class="site-nav-link">Projekti</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="timeline.html" class="site-nav-link">Iskustvo</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="blog.html" class="site-nav-link">Blog</a>
+          </li>
+          <li class="site-nav-item">
+            <a href="contact.html" class="site-nav-link">Kontakt</a>
+          </li>
+        </ul>
+
+        <!-- Theme toggle button -->
+        <button
+          class="theme-toggle"
+          aria-label="Promeni temu"
+          aria-pressed="false"
+          title="Light/Dark tema"
+        >
+          <svg
+            class="theme-toggle-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <!-- Sun icon -->
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="site-main">
+      <!-- HERO (GRID: LEVO tekst, DESNO placeholder/slika) -->
+      <section class="hero">
+        <div class="hero-inner">
+          <!-- Leva kolona -->
+          <div class="hero-content">
+            <p class="hero-eyebrow">Junior Web & Python Developer</p>
+
+            <h1 class="hero-title">Zdravo, ja sam Josip 👋</h1>
+
+            <p class="hero-subtitle">
+              Junior Web Developer sa strašću za automatizaciju, podatke i čist
+              kod.
+            </p>
+
+            <div class="hero-actions">
+              <a href="projects.html" class="btn-primary"
+                >Pogledaj moje projekte</a
+              >
+              <a href="assets/cv/cv_en.pdf" class="btn-secondary" download>
+                Preuzmi CV (EN, PDF)
+              </a>
+            </div>
+          </div>
+
+          <!-- Desna kolona -->
+          <div class="hero-media">
+            <div class="hero-photo-placeholder">
+              Josip Pavlović<br />
+              Portfolio u izgradnji
+            </div>
+
+            <div class="floating-card card-1">
+              <span>▶</span>
+              <code>npm run build</code>
+            </div>
+            <div class="floating-card card-2">
+              <span>⚡</span>
+              <code>fetch('/api/data')</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured projects -->
+      <section class="section">
+        <div class="section-header">
+          <p class="section-eyebrow">Izdvojeni projekti</p>
+          <h2 class="section-title">Praktični rad i primeri</h2>
+          <p class="section-subtitle">
+            Od responzivnih sajtova do automatizacije — projekti fokusirani na
+            čitljiv kod, pristupačnost i merenje performansi.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="project-card">
+            <span class="project-meta">Featured · Web</span>
+            <h3 class="project-title">CV Portfolio</h3>
+            <p class="project-desc">
+              Personalizovan CV sa sticky navigacijom, temama i grid layoutom,
+              građen modularnom CSS arhitekturom.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS Architecture</span>
+              <span class="project-tag">Dark mode</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn-secondary" href="projects.html">Detalji</a>
+              <a class="project-link" href="projects.html">Live →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-meta">Featured · Frontend</span>
+            <h3 class="project-title">Weather App</h3>
+            <p class="project-desc">
+              Weather dashboard sa API pozivima, geolokacijom i čistim state
+              menadžmentom u vanilla JS-u.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn-secondary" href="projects.html">Detalji</a>
+              <a class="project-link" href="weather-app/index.html">Live →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-meta">Featured · Automation</span>
+            <h3 class="project-title">Todo & Automation Lab</h3>
+            <p class="project-desc">
+              Spoj task menadžmenta i malih automatizacija — fokus na UX,
+              pristupačnost i ponovnu upotrebu komponenti.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">ARIA</span>
+              <span class="project-tag">Accessibility</span>
+              <span class="project-tag">JS</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn-secondary" href="projects.html">Detalji</a>
+              <a class="project-link" href="todo-app/index.html">Live →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <!-- Tri kolone: Nav, Kontakt, Socials -->
+        <div class="site-footer-content">
+          <!-- Kolona 1: Navigacija -->
+          <section class="footer-col">
+            <h3 class="footer-heading">Navigacija</h3>
+            <nav class="footer-nav">
+              <a href="index.html">Početna</a>
+              <a href="projects.html">Projekti</a>
+              <a href="blog.html">Blog</a>
+              <a href="contact.html">Kontakt</a>
+            </nav>
+          </section>
+
+          <!-- Kolona 2: Kontakt -->
+          <section class="footer-col">
+            <h3 class="footer-heading">Kontakt</h3>
+            <dl class="footer-contact">
+              <dt>Email</dt>
+              <dd>
+                <a href="mailto:josip.pavlovic@example.com"
+                  >josip.pavlovic@example.com</a
+                >
+              </dd>
+              <dt>Lokacija</dt>
+              <dd>Beograd, Srbija</dd>
+            </dl>
+          </section>
+
+          <!-- Kolona 3: Socials -->
+          <section class="footer-col">
+            <h3 class="footer-heading">Pratite Me</h3>
+            <ul class="footer-socials">
+              <li>
+                <a
+                  href="https://github.com/josip-pavlovic-dev"
+                  class="social-link"
+                  target="_blank"
+                  rel="noopener"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com"
+                  class="social-link"
+                  target="_blank"
+                  rel="noopener"
+                  >LinkedIn</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com"
+                  class="social-link"
+                  target="_blank"
+                  rel="noopener"
+                  >Twitter</a
+                >
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <!-- Donja linija: Copyright + Legal -->
+        <div class="footer-bottom">
+          <p class="site-footer-copy">
+            &copy; 2025 Josip Pavlović. Sva prava zadržana.
+          </p>
+          <nav class="footer-legal">
+            <a href="privacy.html">Privatnost</a>
+            <a href="terms.html">Uslovi korišćenja</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script defer src="js/scripts.js"></script>
+  </body>
+</html>
