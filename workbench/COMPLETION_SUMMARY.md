@@ -298,6 +298,15 @@ workbench/
 
 ---
 
+## 🔄 Git Workflow (ACP & PR)
+
+- Radi na `feat/*` ili `fix/*` granama kreiranim iz `main`.
+- ACP petlja: `git add -A` → `git commit` → `git push` na feature granu.
+- Otvori PR ka `main` i spoji (prefer squash) tek posle review-a/testa.
+- `main` ostaje čist; bez direktnih commit-a na `main`.
+- Posle merge-a: `git switch main && git pull --ff-only`, zatim obriši spajane grane lokalno/remotely.
+- Detalji: vidi `docs/WORKFLOW.md`.
+
 ## 🎉 COMPLETION CHECKLIST
 
 - ✅ CSS variables system created (7 files)

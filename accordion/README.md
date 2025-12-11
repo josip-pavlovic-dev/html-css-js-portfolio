@@ -1,4 +1,4 @@
-# ❓ FAQ Accordion Component | _FAQ Accordion Komponenta_
+git# ❓ FAQ Accordion Component | _FAQ Accordion Komponenta_
 
 [![Accessibility Tested](https://img.shields.io/badge/accessibility-checked-brightgreen)](https://www.w3.org/WAI/test-evaluate/) [![Responsive](https://img.shields.io/badge/responsive-yes-blue)](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design) [![Vanilla JS](https://img.shields.io/badge/JS-vanilla-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Theme Support](https://img.shields.io/badge/theme-light%2Fdark-orange)](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-color-scheme)
 
