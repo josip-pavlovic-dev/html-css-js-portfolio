@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Production-ready FAQ accordion component with full accessibility support — part of the HTML/CSS/JS mini projects portfolio."
+    />
+    <link rel="icon" type="image/png" href="../../assets/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>FAQ Accordion (Final) | HTML/CSS/JS Mini Projects</title>
+  </head>
+  <body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+      <div class="container">
+        <div class="header-layout">
+          <div class="header-main">
+            <div class="header-brand">
+              <img
+                src="../../assets/logo.png"
+                alt="Josip Pavlović — Python & Full-Stack Web Developer"
+                class="site-logo"
+              />
+              <h1 class="site-title">FAQ Accordion Component</h1>
+            </div>
+            <p class="header-lead">
+              Production-ready, accessible accordion built with semantic HTML,
+              modern CSS design tokens, and optimized JavaScript.
+              Portfolio-grade component following WCAG 2.1 AA standards.
+            </p>
+          </div>
+
+          <!-- Theme toggle button -->
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to dark theme"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="site-main">
+      <div class="container">
+        <section class="accordion" aria-label="Frequently Asked Questions">
+          <!-- FAQ ITEM 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="accordion-panel-1"
+                id="accordion-header-1"
+              >
+                <span class="accordion-trigger-label">
+                  What is this accordion component?
+                </span>
+                <span class="accordion-trigger-icon" aria-hidden="true">
+                  <svg class="icon-arrow" viewBox="0 0 16 16" focusable="false">
+                    <polyline class="icon-arrow-line" points="5 3 11 8 5 13" />
+                  </svg>
+                </span>
+              </button>
+            </h2>
+
+            <div
+              id="accordion-panel-1"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-1"
+              hidden
+            >
+              <p>
+                This is a production-ready FAQ accordion component built as part
+                of a portfolio project. It demonstrates semantic HTML5, modern
+                CSS architecture with design tokens, vanilla JavaScript best
+                practices, and full accessibility compliance (WCAG 2.1 AA).
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ ITEM 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="accordion-panel-2"
+                id="accordion-header-2"
+              >
+                <span class="accordion-trigger-label">
+                  How does the accordion behavior work?
+                </span>
+                <span class="accordion-trigger-icon" aria-hidden="true">
+                  <svg class="icon-arrow" viewBox="0 0 16 16" focusable="false">
+                    <polyline class="icon-arrow-line" points="5 3 11 8 5 13" />
+                  </svg>
+                </span>
+              </button>
+            </h2>
+
+            <div
+              id="accordion-panel-2"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-2"
+              hidden
+            >
+              <p>
+                The accordion follows a "one panel always open" pattern—when you
+                click a closed panel, it opens and closes all others. This
+                ensures users always have access to some content. The first
+                panel opens automatically on page load for better UX.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ ITEM 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="accordion-panel-3"
+                id="accordion-header-3"
+              >
+                <span class="accordion-trigger-label">
+                  What accessibility features are included?
+                </span>
+                <span class="accordion-trigger-icon" aria-hidden="true">
+                  <svg class="icon-arrow" viewBox="0 0 16 16" focusable="false">
+                    <polyline class="icon-arrow-line" points="5 3 11 8 5 13" />
+                  </svg>
+                </span>
+              </button>
+            </h2>
+
+            <div
+              id="accordion-panel-3"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-3"
+              hidden
+            >
+              <p>
+                Full ARIA implementation with <code>aria-expanded</code>,
+                <code>aria-controls</code>, <code>aria-labelledby</code>, and
+                <code>role="region"</code>. Closed panels use the
+                <code>hidden</code> attribute to remove them from the
+                accessibility tree. Keyboard navigation is fully supported (Tab,
+                Space, Enter), and focus states are clearly visible with
+                <code>:focus-visible</code>.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ ITEM 4 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                type="button"
+                class="accordion-trigger"
+                aria-expanded="false"
+                aria-controls="accordion-panel-4"
+                id="accordion-header-4"
+              >
+                <span class="accordion-trigger-label">
+                  Why use design tokens instead of hardcoded values?
+                </span>
+                <span class="accordion-trigger-icon" aria-hidden="true">
+                  <svg class="icon-arrow" viewBox="0 0 16 16" focusable="false">
+                    <polyline class="icon-arrow-line" points="5 3 11 8 5 13" />
+                  </svg>
+                </span>
+              </button>
+            </h2>
+
+            <div
+              id="accordion-panel-4"
+              class="accordion-panel"
+              role="region"
+              aria-labelledby="accordion-header-4"
+              hidden
+            >
+              <p>
+                Design tokens (CSS custom properties) create a consistent design
+                system across the entire project. They make maintenance
+                easier—change one variable and it updates everywhere. They also
+                enable theme switching (light/dark mode) with minimal code. This
+                component uses tokens for colors, spacing, typography, and
+                animation timing.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="container footer-flex">
+        <div class="footer-left">
+          <img src="../../assets/favicon.png" alt="" class="footer-logo-icon" />
+          <span class="footer-text">
+            Built as part of the <strong>html-css-js-portfolio</strong> project.
+          </span>
+        </div>
+        <ul class="footer-meta" aria-label="Component highlights">
+          <li>Semantic HTML5</li>
+          <li>ARIA Accessibility</li>
+          <li>Keyboard Support</li>
+          <li>Design Tokens</li>
+          <li>Light/Dark Theme</li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
