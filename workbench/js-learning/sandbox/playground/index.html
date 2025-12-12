@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Sandbox Playground</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        padding: 2rem;
+      }
+      nav.site-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #ddd;
+      }
+      .nav-list {
+        display: flex;
+        gap: 0.75rem;
+      }
+      .nav-link {
+        padding: 0.3rem 0.6rem;
+        border-radius: 999px;
+        color: #555;
+        text-decoration: none;
+      }
+      .nav-link:hover {
+        background: #eef5ff;
+        color: #2563eb;
+      }
+      .nav-actions {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .nav-button {
+        padding: 0.3rem 0.8rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+      }
+      .nav-button--primary {
+        background: #2563eb;
+        border-color: #2563eb;
+        color: #fff;
+      }
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+      }
+      .box {
+        padding: 1rem;
+        border: 1px dashed #bbb;
+      }
+      .highlight {
+        outline: 2px solid hotpink;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="nav-branding"><a href="#" class="nav-logo">Sandbox</a></div>
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-button">Secondary</button>
+        <button class="nav-button nav-button--primary" id="loginBtn">
+          Login
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <h1 id="title">JavaScript Playground</h1>
+      <div class="box" id="box">Try DOM, events, and debugging here.</div>
+      <ul id="items">
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+      <button id="addItemBtn">Add Item</button>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
