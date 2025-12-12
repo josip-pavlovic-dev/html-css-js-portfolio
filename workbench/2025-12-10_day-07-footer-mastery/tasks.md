@@ -234,7 +234,7 @@
 
 - [ ] **2.19** Proveri: Kontrast sa WebAIM (10 min)
 
-  - https://webaim.org/resources/contrastchecker/
+  - <https://webaim.org/resources/contrastchecker/>
   - Sve boje imaju minimum 4.5:1?
 
 - [ ] **2.20** Testiraj: Full footer na celoj stranici (10 min)
