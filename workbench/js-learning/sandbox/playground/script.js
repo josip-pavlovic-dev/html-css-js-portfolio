@@ -42,10 +42,11 @@ addItemBtn.addEventListener("click", () => {
 });
 
 // Debugging demo
-function calcTotal(arr) {
-  debugger;
-  return arr.reduce((acc, n) => acc + n, 0);
-}
+
+// function calcTotal(arr) {
+//   debugger;
+//   return arr.reduce((acc, n) => acc + n, 0);
+// }
 
 // Try in console:
 // calcTotal([1,2,3])
